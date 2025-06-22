@@ -8,7 +8,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="relative flex w-full items-center bg-black px-8 py-4">
+        <nav className="relative flex w-full items-center justify-between md:justify-start bg-black px-8 py-4">
             <Link href="/" className="logo z-50">
                 <Image src="/logo.svg" alt="logo" width={64} height={64} />
             </Link>
