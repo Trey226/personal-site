@@ -15,10 +15,10 @@ export default function Navbar() {
 
             <ul className="hidden items-center gap-x-2 md:flex">
                 <NavbarItem href="/">Home</NavbarItem>
-                <NavbarItem href="/projects">Projects</NavbarItem>
-                <NavbarItem href="/resume">Resume</NavbarItem>
-                <NavbarItem href="/contact">Contact</NavbarItem>
-                <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+                <NavbarItem href="/Projects">Projects</NavbarItem>
+                <NavbarItem href="/Resume">Resume</NavbarItem>
+                <NavbarItem href="/Contact">Contact</NavbarItem>
+                <NavbarItem href="/Interests">Stuff I Like</NavbarItem>
             </ul>
 
             {/* This configures the mobile navbar */}
