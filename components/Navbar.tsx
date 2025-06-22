@@ -1,27 +1,82 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-
+import { useState } from "react";
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <nav className="flex w-full items-center bg-black px-8 py-4">
-            <Link href="/" className="logo">
-            <Image src="/logo.svg" alt="logo" width={64} height={64} />
+        <nav className="relative flex w-full items-center bg-black px-8 py-4">
+            <Link href="/" className="logo z-50">
+                <Image src="/logo.svg" alt="logo" width={64} height={64} />
             </Link>
-            <ul className="flex items-center gap-x-2">
+
+            <button
+                className="z-50 md:hidden"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+            >
+                {isOpen ? (
+                    <svg
+                        className="h-8 w-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                    </svg>
+                ) : (
+                    <svg
+                        className="h-8 w-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 6h16M4 12h16m-7 6h7"
+                        />
+                    </svg>
+                )}
+            </button>
+
+            <ul className="hidden items-center gap-x-2 md:flex">
                 <NavbarItem href="/">Home</NavbarItem>
                 <NavbarItem href="/projects">Projects</NavbarItem>
                 <NavbarItem href="/resume">Resume</NavbarItem>
                 <NavbarItem href="/contact">Contact</NavbarItem>
                 <NavbarItem href="/interests">Stuff I Like</NavbarItem>
             </ul>
+
+            {isOpen && (
+                <div className="absolute inset-0 top-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-black md:hidden">
+                    <ul className="flex flex-col items-center gap-y-8">
+                        <NavbarItem href="/">Home</NavbarItem>
+                        <NavbarItem href="/projects">Projects</NavbarItem>
+                        <NavbarItem href="/resume">Resume</NavbarItem>
+                        <NavbarItem href="/contact">Contact</NavbarItem>
+                        <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+                    </ul>
+                </div>
+            )}
         </nav>
     )
 }
 
 function NavbarItem({href,children}: {href: string, children: React.ReactNode}) {
     return(
-        <li className="rounded px-4 py-2 text-lg font-medium text-white transition-all hover:bg-white/10">
+        <li className="rounded px-4 py-2 text-2xl font-medium text-white transition-all hover:bg-white/10 md:text-lg">
             <Link href={href}>
             {children}
             </Link>
