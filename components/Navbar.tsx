@@ -65,10 +65,10 @@ export default function Navbar() {
                 <div className="absolute inset-0 top-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-black md:hidden">
                     <ul className="flex flex-col items-center gap-y-8">
                         <NavbarItem href="/">Home</NavbarItem>
-                        <NavbarItem href="/projects">Projects</NavbarItem>
-                        <NavbarItem href="/resume">Resume</NavbarItem>
-                        <NavbarItem href="/contact">Contact</NavbarItem>
-                        <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+                        <NavbarItem href="/Projects">Projects</NavbarItem>
+                        <NavbarItem href="/Resume">Resume</NavbarItem>
+                        <NavbarItem href="/Contact">Contact</NavbarItem>
+                        <NavbarItem href="/Interests">Stuff I Like</NavbarItem>
                     </ul>
                 </div>
             )}
