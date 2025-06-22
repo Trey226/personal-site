@@ -1,7 +1,7 @@
-export default function Interests(){
-    return(
-        <div className="flex justify-center">
-            <h1 className="">This will be cards that link to a few different projects</h1>
+export default function Interests() {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <h1>This will be links to random things I like</h1>
         </div>
     );
 }

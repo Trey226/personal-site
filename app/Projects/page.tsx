@@ -1,7 +1,7 @@
-export default function Projects(){
-    return(
-        <div className="flex justify-center">
-            <h1 className="">This will be cards that link to a few different projects</h1>
+export default function Projects() {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <h1>This will be cards linking to projects I have made/ been a part of</h1>
         </div>
     );
 }
