@@ -13,6 +13,15 @@ export default function Navbar() {
                 <Image src="/logo.svg" alt="logo" width={64} height={64} />
             </Link>
 
+            <ul className="hidden items-center gap-x-2 md:flex">
+                <NavbarItem href="/">Home</NavbarItem>
+                <NavbarItem href="/projects">Projects</NavbarItem>
+                <NavbarItem href="/resume">Resume</NavbarItem>
+                <NavbarItem href="/contact">Contact</NavbarItem>
+                <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+            </ul>
+
+            {/* This configures the mobile navbar */}
             <button
                 className="z-50 md:hidden"
                 onClick={() => setIsOpen(!isOpen)}
@@ -51,13 +60,6 @@ export default function Navbar() {
                 )}
             </button>
 
-            <ul className="hidden items-center gap-x-2 md:flex">
-                <NavbarItem href="/">Home</NavbarItem>
-                <NavbarItem href="/projects">Projects</NavbarItem>
-                <NavbarItem href="/resume">Resume</NavbarItem>
-                <NavbarItem href="/contact">Contact</NavbarItem>
-                <NavbarItem href="/interests">Stuff I Like</NavbarItem>
-            </ul>
 
             {isOpen && (
                 <div className="absolute inset-0 top-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-black md:hidden">
