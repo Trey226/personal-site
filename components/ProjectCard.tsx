@@ -5,23 +5,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 
-export default function ActionAreaCard() {
+export default function ActionAreaCard({title, description, image, link, outsideLink}: {title: string, description: string, image: string, link: string, outsideLink: boolean}) {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+      <CardActionArea href={link} target={outsideLink ? "_blank" : "_self"}>
         <CardMedia
           component="img"
           height="140"
-          image="/logo.svg"
-          alt="green iguana"
+          image={image}
+          alt="A screenshot of the project"
         />
         <CardContent>
+            <hr style={{border: "1px solid #e0e0e0"}} />
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
