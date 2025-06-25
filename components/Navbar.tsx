@@ -8,7 +8,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="relative flex w-full items-center justify-between md:justify-start bg-black px-8 py-4">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex w-full items-center justify-start px-8 py-4" style={{backgroundColor: "#131313"}}>
             <Link href="/" className="logo z-50">
                 <Image src="/logo.svg" alt="logo" width={64} height={64} />
             </Link>
@@ -78,11 +78,11 @@ export default function Navbar() {
 
 function NavbarItem({href,children}: {href: string, children: React.ReactNode}) {
     return(
+        <Link href={href}>
         <li className="rounded px-4 py-2 text-2xl font-medium text-white transition-all hover:bg-white/10 md:text-lg">
-            <Link href={href}>
             {children}
-            </Link>
         </li>
+        </Link>
     );
 }
 
