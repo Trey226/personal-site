@@ -5,7 +5,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 
-export default function ActionAreaCard({title, description, image, link, outsideLink}: {title: string, description: string, image: string, link: string, outsideLink: boolean}) {
+type Project = {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+    outsideLink: boolean;
+}
+
+export default function ActionAreaCard({title, description, image, link, outsideLink}: Project) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea href={link} target={outsideLink ? "_blank" : "_self"}>
