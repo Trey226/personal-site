@@ -16,8 +16,14 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         setHasMounted(true);
     }, []);
 
+    // Show loading state before mount
     if (!hasMounted) {
-        return null;
+        return <div>Loading projects...</div>;
+    }
+
+    // Debug: Check if projects array is valid
+    if (!projects || projects.length === 0) {
+        return <div>No projects found</div>;
     }
 
     return (
