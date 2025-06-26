@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Resume() {
     return (
-        <div>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "85vh" }}>
             resume
         </div>
     );

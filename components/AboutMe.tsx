@@ -11,14 +11,12 @@
 
 import React from 'react';
 import { Container, Stack, Avatar, Typography, IconButton, Box, SvgIcon } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Image from 'next/image';
 
 
 export default function AboutMe() {
     return (
-        <Container maxWidth="md" sx={{ mt: 8, mb: 8 }}>
+        <Container maxWidth="md" sx={{ mt: 8, mb: 8, paddingTop: { xs: 2, sm: 10 } }}>
             <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={{ xs: 4, sm: 4 }}
@@ -37,8 +35,8 @@ export default function AboutMe() {
                     {/* Profile Picture using next/image */}
                     <Box
                         sx={{
-                            width: { xs: 240, sm: 240 },
-                            height: { xs: 240, sm: 240 },
+                            width: { xs: 300, sm: 300 },
+                            height: { xs: 300, sm: 300 },
                             borderRadius: '50%',
                             overflow: 'hidden',
                             border: '3px solid #fff',
@@ -69,7 +67,7 @@ export default function AboutMe() {
                             color="primary"
                             size="large"
                         >
-                            <GitHubIcon sx={{ fontSize: 60 }} />
+                            <img src="/GitHub.svg" alt="GitHub" width={60} height={60} />
                         </IconButton>
                         {/* LinkedIn IconButton: Links to LinkedIn profile */}
                         <IconButton
@@ -80,12 +78,12 @@ export default function AboutMe() {
                             color="primary"
                             size="large"
                         >
-                            <LinkedInIcon sx={{ fontSize: 60 }} />
+                            <img src="/LinkedIn.png" alt="LinkedIn" width={60} height={60} />
                         </IconButton>
                         {/* Discord IconButton: Links to Discord */}
                         <IconButton
                             aria-label="Discord"
-                            href="https://discord.com/"
+                            href="https://discord.gg/GQXdTJmy3N"
                             target="_blank"
                             rel="noopener noreferrer"
                             color="primary"
@@ -96,7 +94,7 @@ export default function AboutMe() {
                     </Stack>
                 </Box>
                 {/* Bio Section */}
-                <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, flex: 1 }}>
+                <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, flex: 1, paddingLeft: { xs: 2, sm: 6 } }}>
                     <Typography variant="h3" component="h1" gutterBottom>
                         Trey Gilliam
                     </Typography>
