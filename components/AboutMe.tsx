@@ -96,7 +96,7 @@ export default function AboutMe() {
                 {/* Bio Section */}
                 <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, flex: 1, paddingLeft: { xs: 2, sm: 6 } }}>
                     <Typography variant="h3" component="h1" gutterBottom>
-                        Trey Gilliam
+                        Hi, I'm Trey
                     </Typography>
                     <Typography variant="body1">
                         Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. 
