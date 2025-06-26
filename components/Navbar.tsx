@@ -15,7 +15,7 @@ export default function Navbar() {
                 <NavbarItem href="/projects">Projects</NavbarItem>
                 <NavbarItem href="/interests">Stuff I Like</NavbarItem>
                 <NavbarItem href="/resume">Resume</NavbarItem>
-                <NavbarItem href="/contact">Contact</NavbarItem>
+                {/* <NavbarItem href="/contact">Contact</NavbarItem> */}
             </ul>
 
             {/* This configures the mobile navbar */}
