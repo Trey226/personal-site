@@ -16,11 +16,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { DiscordIcon } from '@/components/DiscordIcon';
 import Image from 'next/image';
 
-/**
- * Renders the About Me section with a profile picture, bio, and social links.
- * 
- * @returns {JSX.Element} The rendered AboutMe component.
- */
+
 export default function AboutMe() {
     return (
         <Container maxWidth="md" sx={{ mt: 8, mb: 8 }}>

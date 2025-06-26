@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-
+import DynamicResume from "@/components/DynamicResume";
 export const metadata: Metadata = {
     title: "Resume",
     description: "My resume",
@@ -10,7 +10,7 @@ export default function Resume() {
 
         //I already have my resume I just want a centered box with some styling to display the raw text of it
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
-            <code>This will be my resume</code>
+            <DynamicResume />
         </div>
     );
 }
