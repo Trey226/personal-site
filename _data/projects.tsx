@@ -29,10 +29,10 @@ export const projects: Project[] = [
         outsideLink: true
     },
     {
-        title: "Beat the ATS",
-        description: "This is a tool written in python that takes your resume and a specific job description and analyzes the most important keywords to include in your resume to get reccomended by ATS software.",
-        image: "/keyword.png",
-        link: "#",
+        title: "Trey Makes Things",
+        description: "I made this thing to show other things I've made. This was my first time using Next.js so beyond being functional it was a good way to learn. I strive to have more \"silly\" projects than serious ones.",
+        image: "/nextjs.png",
+        link: "/projects",
         outsideLink: false
     },
     {

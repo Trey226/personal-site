@@ -16,7 +16,7 @@ import Image from 'next/image';
 
 export default function AboutMe() {
     return (
-        <Container maxWidth="md" sx={{ mt: 8, mb: 8, paddingTop: { xs: 2, sm: 10 } }}>
+        <Container maxWidth="md" sx={{ mt: 15, mb: 8,  }}>
             <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={{ xs: 4, sm: 4 }}
@@ -59,16 +59,6 @@ export default function AboutMe() {
                     {/* Social Media Links */}
                     <Stack direction="row" spacing={2} sx={{ mb: { xs: 2, sm: 0 } }}>
                         {/* GitHub IconButton: Links to GitHub profile */}
-                        <IconButton
-                            aria-label="GitHub"
-                            href="https://github.com/Trey226"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            color="primary"
-                            size="large"
-                        >
-                            <img src="/GitHub.svg" alt="GitHub" width={60} height={60} />
-                        </IconButton>
                         {/* LinkedIn IconButton: Links to LinkedIn profile */}
                         <IconButton
                             aria-label="LinkedIn"
@@ -79,6 +69,16 @@ export default function AboutMe() {
                             size="large"
                         >
                             <img src="/LinkedIn.png" alt="LinkedIn" width={60} height={60} />
+                        </IconButton>
+                        <IconButton
+                            aria-label="GitHub"
+                            href="https://github.com/Trey226"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            color="primary"
+                            size="large"
+                        >
+                            <img src="/GitHub.svg" alt="GitHub" width={60} height={60} />
                         </IconButton>
                         {/* Discord IconButton: Links to Discord */}
                         <IconButton
