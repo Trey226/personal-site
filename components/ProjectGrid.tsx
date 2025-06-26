@@ -16,18 +16,12 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
         setHasMounted(true);
     }, []);
 
-    // Show loading state before mount
     if (!hasMounted) {
-        return <div>Loading projects...</div>;
-    }
-
-    // Debug: Check if projects array is valid
-    if (!projects || projects.length === 0) {
-        return <div>No projects found</div>;
+        return null;
     }
 
     return (
-        <Grid container spacing={{ xs: 2, sm: 3 }} columns={{ xs: 1, sm: 4, md: 15 }} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <Grid container spacing={{ xs: 2, sm: 3 }} columns={{ xs: 1, sm: 4, md: 15 }} sx={{ display: "flex", justifyContent: "center" }}>
             {projects.map((project, index) => (
                 <Grid key={index} size={{ xs: 1, sm: 2, md: 4 }} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <ProjectCard

@@ -8,10 +8,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="relative top-0 left-0 right-0 z-50 flex w-full items-center justify-start px-8 py-4" style={{backgroundColor: "var(--background)"}}>
-            <Link href="/" className="logo z-50">
-                <Image src="/logo.svg" alt="logo" width={64} height={64} />
-            </Link>
+        <nav className="relative top-0 left-0 right-0 z-50 flex w-full items-center sm:justify-start md:justify-center px-8 py-4" style={{backgroundColor: "var(--background)"}}>
 
             <ul className="hidden items-center gap-x-2 md:flex">
                 <NavbarItem href="/">Home</NavbarItem>
@@ -79,7 +76,7 @@ export default function Navbar() {
 function NavbarItem({href, children, closeMenu}: {href: string, children: React.ReactNode, closeMenu?: () => void}) {
     return(
         <Link href={href} onClick={closeMenu}>
-        <li className="rounded px-4 py-2 text-2xl font-medium text-white transition-all hover:bg-white/10 md:text-lg">
+        <li className="rounded px-4 py-2 text-2xl font-medium text-white transition-all hover:bg-white/10 md:text-lg text-blue">
             {children}
         </li>
         </Link>

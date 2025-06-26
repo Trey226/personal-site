@@ -23,7 +23,7 @@ export const projects: Project[] = [
     },
     {
         title: "OnTime",
-        description: "This was a project I do for a Software Engineering course. It is a FireBase single page application that allows creating managing and notification of tasks. It was built using FireBase, JavaScript, and using a Firestore database.",
+        description: "This is a project I made for a Software Engineering course. It is a FireBase single page application that allows creating, managing, and notification of tasks. It was built using FireBase, JavaScript, and a Firestore database.",
         image: "/ontimeLogo.png",
         link: "https://ontime.treymakesthings.com",
         outsideLink: true
