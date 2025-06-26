@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/Data/projects";
+import { projects } from "@/_data/projects";
 
 type ProjectGridProps = {
     projects: typeof projects;
@@ -21,9 +21,9 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
     }
 
     return (
-        <Grid container spacing={{ xs: 2, sm: 3 }} columns={{ xs: 1, sm: 4, md: 12 }}>
+        <Grid container spacing={{ xs: 2, sm: 3 }} columns={{ xs: 1, sm: 4, md: 15 }} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             {projects.map((project, index) => (
-                <Grid key={index} size={{ xs: 1, sm: 2, md: 4 }}>
+                <Grid key={index} size={{ xs: 1, sm: 2, md: 4 }} sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <ProjectCard
                         title={project.title}
                         description={project.description}

@@ -8,17 +8,17 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex w-full items-center justify-start px-8 py-4" style={{backgroundColor: "#131313"}}>
+        <nav className="relative top-0 left-0 right-0 z-50 flex w-full items-center justify-start px-8 py-4" style={{backgroundColor: "var(--background)"}}>
             <Link href="/" className="logo z-50">
                 <Image src="/logo.svg" alt="logo" width={64} height={64} />
             </Link>
 
             <ul className="hidden items-center gap-x-2 md:flex">
                 <NavbarItem href="/">Home</NavbarItem>
-                <NavbarItem href="/Projects">Projects</NavbarItem>
-                <NavbarItem href="/Resume">Resume</NavbarItem>
-                <NavbarItem href="/Contact">Contact</NavbarItem>
-                <NavbarItem href="/Interests">Stuff I Like</NavbarItem>
+                <NavbarItem href="/projects">Projects</NavbarItem>
+                <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+                <NavbarItem href="/resume">Resume</NavbarItem>
+                <NavbarItem href="/contact">Contact</NavbarItem>
             </ul>
 
             {/* This configures the mobile navbar */}
@@ -65,10 +65,10 @@ export default function Navbar() {
                 <div className="absolute inset-0 top-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-black md:hidden">
                     <ul className="flex flex-col items-center gap-y-8">
                         <NavbarItem href="/">Home</NavbarItem>
-                        <NavbarItem href="/Projects">Projects</NavbarItem>
-                        <NavbarItem href="/Resume">Resume</NavbarItem>
-                        <NavbarItem href="/Contact">Contact</NavbarItem>
-                        <NavbarItem href="/Interests">Stuff I Like</NavbarItem>
+                        <NavbarItem href="/projects">Projects</NavbarItem>
+                        <NavbarItem href="/interests">Stuff I Like</NavbarItem>
+                        <NavbarItem href="/resume">Resume</NavbarItem>
+                        <NavbarItem href="/contact">Contact</NavbarItem>
                     </ul>
                 </div>
             )}

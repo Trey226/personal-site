@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ProjectGrid from "@/components/ProjectGrid";
-import { projects } from "@/Data/projects";
+import { projects } from "@/_data/projects";
 
 export const metadata: Metadata = {
     title: "Projects",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Projects() {
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh", padding: "20px", }}>
+        <div style={{ display: "flex-grow", flexDirection: "column", alignItems: "center", paddingTop: "112px", paddingLeft: "20px", paddingRight: "20px", minHeight: "100vh"}}>
             <ProjectGrid projects={projects} />
         </div>
     );

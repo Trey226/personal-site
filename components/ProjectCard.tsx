@@ -15,8 +15,8 @@ type Project = {
 
 export default function ActionAreaCard({title, description, image, link, outsideLink}: Project) {
   return (
-    <Card sx={{ maxWidth: 345, height: 360, border: "2px solid #a3a3a3", borderRadius: "50px" }} className="">
-      <CardActionArea href={link} target={outsideLink ? "_blank" : "_self"} className="h-full hover:bg-black/50">
+    <Card variant="outlined" sx={{ width: 345, height: 360, borderRadius: "50px", boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.5)" }}>
+      <CardActionArea href={link} target={outsideLink ? "_blank" : "_self"} className="h-full hover:bg-black">
         <CardMedia
           component="img"
           height="140"
