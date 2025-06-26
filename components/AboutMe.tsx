@@ -13,7 +13,6 @@ import React from 'react';
 import { Container, Stack, Avatar, Typography, IconButton, Box, SvgIcon } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { DiscordIcon } from '@/components/DiscordIcon';
 import Image from 'next/image';
 
 
@@ -92,7 +91,7 @@ export default function AboutMe() {
                             color="primary"
                             size="large"
                         >
-                            <DiscordIcon sx={{ fontSize: 60 }} />
+                            <img src="/Discord.svg" alt="Discord" width={60} height={60} />
                         </IconButton>
                     </Stack>
                 </Box>
