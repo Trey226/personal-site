@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Projects() {
     return (
-        <div style={{ display: "flex-grow", flexDirection: "column", alignItems: "center", paddingTop: "112px", paddingLeft: "20px", paddingRight: "20px", minHeight: "100vh"}}>
+        <div style={{ display: "flex-grow", flexDirection: "column", alignItems: "center", paddingTop: "112px", paddingLeft: "20px", paddingRight: "20px"}}>
             <ProjectGrid projects={projects} />
         </div>
     );
