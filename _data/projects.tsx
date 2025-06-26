@@ -18,7 +18,7 @@ export const projects: Project[] = [
         title: "Ctrl-C Ctrl-Eat",
         description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It was built using ASP.NET Core, Entity Framework, and a MySQL Server.",
         image: "/CtrlC.png",
-        link: "https://github.com/ctrl-c-ctrl-eat/ctrl-c-ctrl-eat",
+        link: "https://ctrlc-ctrleat-cqbph7fxbhcpdzh0.centralus-01.azurewebsites.net/",
         outsideLink: true
     },
     {
