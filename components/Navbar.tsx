@@ -64,11 +64,11 @@ export default function Navbar() {
             {isOpen && (
                 <div className="absolute inset-0 top-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-black md:hidden">
                     <ul className="flex flex-col items-center gap-y-8">
-                        <NavbarItem href="/">Home</NavbarItem>
-                        <NavbarItem href="/projects">Projects</NavbarItem>
-                        <NavbarItem href="/interests">Stuff I Like</NavbarItem>
-                        <NavbarItem href="/resume">Resume</NavbarItem>
-                        <NavbarItem href="/contact">Contact</NavbarItem>
+                        <NavbarItem href="/" closeMenu={() => setIsOpen(false)}>Home</NavbarItem>
+                        <NavbarItem href="/projects" closeMenu={() => setIsOpen(false)}>Projects</NavbarItem>
+                        <NavbarItem href="/interests" closeMenu={() => setIsOpen(false)}>Stuff I Like</NavbarItem>
+                        <NavbarItem href="/resume" closeMenu={() => setIsOpen(false)}>Resume</NavbarItem>
+                        <NavbarItem href="/contact" closeMenu={() => setIsOpen(false)}>Contact</NavbarItem>
                     </ul>
                 </div>
             )}
@@ -76,9 +76,9 @@ export default function Navbar() {
     )
 }
 
-function NavbarItem({href,children}: {href: string, children: React.ReactNode}) {
+function NavbarItem({href, children, closeMenu}: {href: string, children: React.ReactNode, closeMenu?: () => void}) {
     return(
-        <Link href={href}>
+        <Link href={href} onClick={closeMenu}>
         <li className="rounded px-4 py-2 text-2xl font-medium text-white transition-all hover:bg-white/10 md:text-lg">
             {children}
         </li>
