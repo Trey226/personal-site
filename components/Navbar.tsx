@@ -8,7 +8,7 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState('');
 
     return (
-        <nav className="hidden md:flex relative justify-center pt-6" style={{backgroundColor: "var(--background)"}}>
+        <nav className="hidden md:flex relative justify-center mt-10" style={{backgroundColor: "var(--background)"}}>
 
             <ul className="flex">
                 <NavbarItem href="/" activeLink={activeLink} setActiveLink={setActiveLink}>Home</NavbarItem>
