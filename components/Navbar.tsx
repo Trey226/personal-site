@@ -8,7 +8,7 @@ export default function Navbar() {
     const [activeLink, setActiveLink] = useState('');
 
     return (
-        <nav className="hidden md:flex relative justify-center py-5" style={{backgroundColor: "var(--background)"}}>
+        <nav className="hidden md:flex relative justify-center pt-6" style={{backgroundColor: "var(--background)"}}>
 
             <ul className="flex">
                 <NavbarItem href="/" activeLink={activeLink} setActiveLink={setActiveLink}>Home</NavbarItem>
@@ -32,7 +32,7 @@ function NavbarItem({href, children, activeLink, setActiveLink}: NavbarItemProps
     const isActive = (activeLink === href);
 
     return(
-        <li className={`px-5 py-5 text-2xl ${isActive ? 'rotate-540 duration-1500' : ''}`}>
+        <li className={`px-5 content-end-safe text-2xl ${isActive ? 'rotate-540 duration-1500' : ''}`}>
             <Link href={href} onClick={() => setActiveLink(href)}>
                 {children}
             </Link>

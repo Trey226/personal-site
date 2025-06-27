@@ -20,15 +20,11 @@ export default function ActionAreaCard({title, description, image, link, outside
       sx={{
         width: 345,
         height: 360,
-        borderRadius: "50px",
-        // A slightly larger, softer initial shadow
-        boxShadow: "0 4px 20px 0 rgba(0, 0, 0, 0.1)",
-        transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+        borderRadius: "69px",
+        transition: "transform .15s ease-in-out",
         // Styles for when the card is hovered over
         "&:hover": {
-          transform: "scale(1.03)",
-          // A more noticeable, "lifted" shadow on hover
-          boxShadow: "0 10px 30px 0 rgba(0, 0, 0, 0.8)",
+          transform: "scale(1.02)",
         },
       }}
     >
@@ -36,12 +32,10 @@ export default function ActionAreaCard({title, description, image, link, outside
         href={link}
         target={outsideLink ? "_blank" : "_self"}
         className="h-full"
-        // Added borderRadius to make the ripple effect match the card's shape
-        sx={{ borderRadius: "50px" }}
       >
         <CardMedia
+          className='h-1/2 w-2/3'
           component="img"
-          height="170px"
           image={image}
           alt="A screenshot of the project"
         />
@@ -50,7 +44,7 @@ export default function ActionAreaCard({title, description, image, link, outside
           <Typography gutterBottom variant="h5" component="div" className='flex justify-center'>
             {title}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }} className='flex justify-center align-bottom pb-1'>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} className='h-full flex justify-center content-end'>
             {description}
           </Typography>
         </CardContent>

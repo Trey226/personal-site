@@ -10,7 +10,7 @@
  */
 
 import React from 'react';
-import { Container, Stack, Avatar, Typography, IconButton, Box, SvgIcon } from '@mui/material';
+import { Container, Stack, Typography, IconButton, Box, SvgIcon } from '@mui/material';
 import Image from 'next/image';
 
 

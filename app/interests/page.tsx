@@ -10,8 +10,10 @@ export default function Interests() {
     return (
 
         //this page I dont know exactly how I want it laid out but I want to have a section for 
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
-            <h1>This will be links to random things I like</h1>
+        <div id="main-page-container" className="flex h-100 justify-center">
+            <div className="flex items-center">
+                This is where I will put links to stuff I like.
+            </div>
         </div>
     );
 }
