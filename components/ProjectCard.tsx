@@ -28,7 +28,7 @@ export default function ActionAreaCard({title, description, image, link, outside
         "&:hover": {
           transform: "scale(1.03)",
           // A more noticeable, "lifted" shadow on hover
-          boxShadow: "0 10px 30px 0 rgba(0, 0, 0, 0.2)",
+          boxShadow: "0 10px 30px 0 rgba(0, 0, 0, 0.8)",
         },
       }}
     >
@@ -41,16 +41,16 @@ export default function ActionAreaCard({title, description, image, link, outside
       >
         <CardMedia
           component="img"
-          height="140"
+          height="170px"
           image={image}
           alt="A screenshot of the project"
         />
         <CardContent>
-          <hr style={{ border: "1px solid #e0e0e0" }} />
-          <Typography gutterBottom variant="h5" component="div">
+          <hr style={{ border: "1px solid #e0e0e0" }}/>
+          <Typography gutterBottom variant="h5" component="div" className='flex justify-center'>
             {title}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} className='flex justify-center align-bottom pb-1'>
             {description}
           </Typography>
         </CardContent>

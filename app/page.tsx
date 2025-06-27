@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { Metadata } from "next";
-import { Grid, Typography } from "@mui/material";
 import AboutMe from "@/components/AboutMe";
 
 export const metadata: Metadata = {

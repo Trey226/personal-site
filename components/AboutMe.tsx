@@ -71,6 +71,16 @@ export default function AboutMe() {
                             <img src="/LinkedIn.png" alt="LinkedIn" width={60} height={60} />
                         </IconButton>
                         <IconButton
+                            aria-label="Discord"
+                            href="https://discord.gg/GQXdTJmy3N"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            color="primary"
+                            size="large"
+                        >
+                            <img src="/Discord.svg" alt="Discord" width={60} height={60} />
+                        </IconButton>
+                        <IconButton
                             aria-label="GitHub"
                             href="https://github.com/Trey226"
                             target="_blank"
@@ -81,16 +91,6 @@ export default function AboutMe() {
                             <img src="/GitHub.svg" alt="GitHub" width={60} height={60} />
                         </IconButton>
                         {/* Discord IconButton: Links to Discord */}
-                        <IconButton
-                            aria-label="Discord"
-                            href="https://discord.gg/GQXdTJmy3N"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            color="primary"
-                            size="large"
-                        >
-                            <img src="/Discord.svg" alt="Discord" width={60} height={60} />
-                        </IconButton>
                     </Stack>
                 </Box>
                 {/* Bio Section */}
