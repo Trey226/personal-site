@@ -4,14 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-
-type Project = {
-    title: string;
-    description: string;
-    image: string;
-    link: string;
-    outsideLink: boolean;
-}
+import { Project } from '@/_data/projects';
 
 export default function ActionAreaCard({title, description, image, link, outsideLink}: Project) {
   return (
