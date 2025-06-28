@@ -1,5 +1,5 @@
+import "./resume.css";
 import { Metadata } from "next";
-import styles from "./resume.css";
 
 export const metadata: Metadata = {
     title: "Resume",
@@ -10,23 +10,23 @@ export default function Resume() {
     return (
         <div className="flex justify-center">
             <div id="paper-setup" className="flex-row w-[45dvw] h-[87dvh] mt-6 px-3 py-3 outline-0 bg-neutral-300 text-black rounded-2xl">
-                <div className="Title">
-                    <h1>Title Section</h1>
+                <div id="title" className="title">
+                    <h1>Title div</h1>
                 </div>
-                <div className="Education">
-                    Education Section
+                <div id="education" className="education">
+                    Education div
                 </div>
-                <div className="Technical">
-                    Technical Skills Section
+                <div id="technical" className="technical">
+                    Technical Skills div
                 </div>
-                <div className="Projects">
-                    Projects Section
+                <div id="projects" className="projects">
+                    Projects div
                 </div>
-                <div className="Experience">
-                    Experience Section
+                <div id="experience" className="experience">
+                    Experience div
                 </div>
-                <div className="Clubs">
-                    Clubs/ Activities Section
+                <div id="clubs" className="clubs">
+                    Clubs/ Activities div
                 </div>
             </div>
         </div>
