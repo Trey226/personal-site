@@ -9,12 +9,21 @@
  * It uses Material-UI for styling and layout, using Stack for a robust responsive implementation.
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Stack, Typography, IconButton, Box, SvgIcon } from '@mui/material';
 import Image from 'next/image';
 
 
 export default function AboutMe() {
+    const [hasMounted, setHasMounted] = useState(false);
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    if (!hasMounted) {
+        return null;
+    }
     return (
         <Container maxWidth="md" sx={{ mt: 15, mb: 8,  }}>
             <Stack
