@@ -11,8 +11,8 @@ export default function ActionAreaCard({title, description, image, link, outside
     <Card
       variant="outlined"
       sx={{
-        width: 345,
-        height: 360,
+        width: 360,
+        height: 375,
         borderRadius: "69px",
         transition: "transform .15s ease-in-out",
         // Styles for when the card is hovered over
@@ -37,7 +37,7 @@ export default function ActionAreaCard({title, description, image, link, outside
           <Typography gutterBottom variant="h5" component="div" className='flex justify-center'>
             {title}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }} className='h-full flex justify-center content-end'>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} className='h-full flex justify-center content-end  px-5.5'>
             {description}
           </Typography>
         </CardContent>
