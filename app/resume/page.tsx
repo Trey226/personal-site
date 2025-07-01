@@ -11,10 +11,19 @@ export default function Resume() {
         <div className="flex justify-center">
             <div id="paper-setup" className="flex-row w-[45dvw] h-[87dvh] mt-6 px-3 py-3 outline-0 bg-neutral-300 text-black rounded-2xl">
                 <div id="title" className="title">
-                    <h1>Title div</h1>
+                    <div className="name flex justify-center">
+                        <h1>Trey Gilliam</h1>
+                    </div>
+                    <div className="contact-info flex justify-center">
+                        <a href="mailto:treygilliam1@gmail.com" className="underline">Treygilliam1@gmail.com | </a>
+                        <a href="Treymakesthings.com" className="ml-1">Treymakesthings.com</a>
+                    </div>
                 </div>
+                <hr />
                 <div id="education" className="education">
-                    Education div
+                    <div className="section-header-container">
+                        <h2>Education</h2>
+                    </div>
                 </div>
                 <div id="technical" className="technical">
                     Technical Skills div
