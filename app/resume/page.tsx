@@ -21,7 +21,15 @@ export default function Resume() {
                 </div>
                 <hr />
                 <div id="education" className="education">
-                    
+                    <h2>Education</h2>
+                    <div id="school-name- dates" className="flex justify-between">
+                        <h3>University of Central Oklahoma</h3>
+                        <h3>2021 - 2025</h3>
+                    </div>
+                    <div id="degree-specifics">
+                        <p>B.S. Software engineering</p>
+                        <p>Economics Minor</p>
+                    </div>
                 </div>
                 <hr />
                 <div id="technical" className="technical">
