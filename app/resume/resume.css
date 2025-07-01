@@ -6,7 +6,8 @@ main {
 .paper {
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
     margin-left: 9px;
     margin-right: 9px;
     padding-top: 10px;
@@ -36,8 +37,11 @@ main {
     justify-content: center;
     flex-wrap: wrap;
 }
-.contact-info a {
-    text-decoration: underline;
+.paper a {
+    color: #0000ee;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 .section-header {
@@ -59,4 +63,14 @@ main {
 .space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.inline {
+    display: flex;
+}
+
+.paper ul {
+    margin-left: 30px;
+    list-style-type:disc;
+    list-style-position: outside;
 }
