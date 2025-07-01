@@ -30,10 +30,16 @@ export default function Resume() {
                         <p>B.S. Software engineering</p>
                         <p>Economics Minor</p>
                     </div>
+                    <h3 id="coursework-section">
+                        Relevant Coursework:
+                        <p>stuff here</p>
+                    </h3>
                 </div>
                 <hr />
                 <div id="technical" className="technical">
-                    Technical Skills div
+                    <div id="">
+
+                    </div>
                 </div>
                 <div id="projects" className="projects">
                     Projects div
