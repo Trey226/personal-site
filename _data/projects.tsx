@@ -36,7 +36,7 @@ export const projects: Project[] = [
         outsideLink: false
     },
     {
-        title: "Interview me Virtually",
+        title: "Virtual Interview",
         description: "This is just a random idea I had while using NotebookLM. This is *supposed* to be a tool that you can ask questions as if I was being interviewed and it *should* spit out answers in about the same way that I would answer. ",
         image: "/stick-figure.png",
         link: "#",

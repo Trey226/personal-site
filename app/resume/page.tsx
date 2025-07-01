@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Resume() {
     return (
         <div className="flex justify-center">
-            <div id="paper-setup" className="flex-row w-[45dvw] h-[87dvh] mt-6 px-3 py-3 outline-0 bg-neutral-300 text-black rounded-2xl">
+            <div id="paper-setup" className="flex-col w-[35dvw] h-[87dvh] mt-6 px-3 py-3 outline-0 bg-neutral-300 text-black rounded-2xl">
                 <div id="title" className="title">
                     <div className="name flex justify-center">
                         <h1>Trey Gilliam</h1>
