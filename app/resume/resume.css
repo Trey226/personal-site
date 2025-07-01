@@ -1,29 +1,20 @@
-h1 {
-    font-size: 26px;
-    font-weight: 400;
-    margin: 1px;
-}
-
-h2 {
+main {
     display: flex;
-    font-size: 22;
-    font-weight: 200;
-    margin-bottom: -8px;
+    justify-content: center;
 }
 
-h3 {
-    font-size: 16;
-    font-weight: 100;
-    margin-bottom: -1px;
-}
-
-p {
-    font-size: 12px;
-    margin-bottom: -1px;
-}
-
-.section-header-container {
-    display: block;
-    justify-content: start;
-    margin: 1px;
+.paper {
+    display: flex;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 750px;
+    height: auto;
+    justify-content: center;
+    color: black;
+    background-color: rgb(241, 233, 235);
+    box-shadow: gray (0,0,1,1);
+    border-radius: 8px;
 }
