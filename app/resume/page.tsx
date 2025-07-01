@@ -15,16 +15,15 @@ export default function Resume() {
                         <h1>Trey Gilliam</h1>
                     </div>
                     <div className="contact-info flex justify-center">
-                        <a href="mailto:treygilliam1@gmail.com" className="underline">Treygilliam1@gmail.com | </a>
-                        <a href="Treymakesthings.com" className="ml-1">Treymakesthings.com</a>
+                        <a href="mailto:treygilliam1@gmail.com" className="underline">Treygilliam1@gmail.com</a>
+                        <a href="Treymakesthings.com" className="ml-1">| Treymakesthings.com</a>
                     </div>
                 </div>
                 <hr />
                 <div id="education" className="education">
-                    <div className="section-header-container">
-                        <h2>Education</h2>
-                    </div>
+                    
                 </div>
+                <hr />
                 <div id="technical" className="technical">
                     Technical Skills div
                 </div>
