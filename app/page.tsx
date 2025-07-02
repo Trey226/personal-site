@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import Image from "next/image";
-import "./page.css"
+import "./globals.css"
 
 export const metadata: Metadata = {
     title: "Home",
@@ -27,7 +26,21 @@ export default function Home() {
         <div className="bio">
         <h1 className="greeting">Hi, I'm Trey!</h1>
         <br />
-        <p className="general-text">side 2ddddddd ddddddddddddd dddddddddddddd ddddddddddd ddddddddd ddddddddddddddd dddddddd dddddddddddddddddd</p>
+        <p className="general-text-home">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+          mollit anim id est laborum.
+        </p>
+        <br />
+        <p className="general-text-home">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+          ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+          mollit anim id est laborum.
+        </p>
         </div>
       </div>
     </main>
