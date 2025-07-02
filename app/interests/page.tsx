@@ -14,7 +14,7 @@ export default function Interests() {
         <main>
             <div className="content-area-interests">
                 <div className="content-column">
-                    <h1 className="column-header">Thing 1</h1>
+                    <h1 className="column-header">CompSci Stuff</h1>
                     <br />
                     <div className="tile-container">
                         <InterestTile />
@@ -23,7 +23,7 @@ export default function Interests() {
                     </div>
                 </div>
                 <div className="content-column">
-                    <h1 className="column-header">Thing 2</h1>
+                    <h1 className="column-header">Econ Stuff</h1>
                     <br />
                     <div className="tile-container">
                         <InterestTile />
@@ -31,7 +31,7 @@ export default function Interests() {
                     </div>
                 </div>
                 <div className="content-column">
-                    <h1 className="column-header">Thing 3</h1>
+                    <h1 className="column-header">Personal Stuff</h1>
                     <br />
                     <div className="tile-container">
                         <InterestTile />

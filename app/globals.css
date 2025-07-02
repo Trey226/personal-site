@@ -8,20 +8,6 @@
     display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #1a1a1a;
-        --foreground: #ededed;
-    }
-
-    .only-on-dark {
-        display: block;
-    }
-
-    .only-on-light {
-        display: none;
-    }
-}
 
 @theme inline {
     --color-background: var(--background);
@@ -70,7 +56,7 @@ main {
     max-width: 570px;
     padding-top: 10px;
     padding-bottom: 20px;
-
+    
 }
 
 .pic-container {
@@ -102,4 +88,19 @@ main {
 
 .general-text-home {
     font-size: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1a1a1a;
+        --foreground: #ededed;
+    }
+
+    .only-on-dark {
+        display: block;
+    }
+
+    .only-on-light {
+        display: none;
+    }
 }
