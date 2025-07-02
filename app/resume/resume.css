@@ -1,3 +1,71 @@
-title {
+.paper {
     display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 777px;
+    height: auto;
+    justify-content: center;
+    font-family:'Courier New', Courier, monospace; 
+    color: black;
+    background-color: rgb(241, 233, 235);
+    box-shadow: gray (0,0,1,1);
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.paper a {
+    color: #0000ee;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.section-header {
+    display: flex;
+    font-size: 22px;
+    font-weight:bold;
+    justify-content: center;
+}
+
+.highlight {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.general-text {
+    font-size: 14px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inline {
+    display: flex;
+}
+
+.paper ul {
+    margin-left: 30px;
+    list-style-type:disc;
+    list-style-position: outside;
 }

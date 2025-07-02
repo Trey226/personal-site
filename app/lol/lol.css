@@ -1,0 +1,21 @@
+.text {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    height: 500px;
+}
+.content-area-lol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 900px;
+    height: 500px;
+}

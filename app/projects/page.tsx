@@ -1,17 +1,21 @@
 import { Metadata } from "next";
-import ProjectGrid from "@/components/ProjectGrid";
-import { projects } from "@/_data/projects";
+import { projects, Project } from "@/_data/projects";
+import  ProjectTile from "@/components/ProjectTile";
+import "./projects.css";
 
 export const metadata: Metadata = {
     title: "Projects",
     description: "My projects",
 };
 
-
 export default function Projects() {
     return (
-        <div style={{ display: "flex-grow", flexDirection: "column", alignItems: "center", paddingTop: "112px", paddingLeft: "20px", paddingRight: "20px"}}>
-            <ProjectGrid projects={projects} />
-        </div>
+        <main>
+            <div className="content-area-projects">
+            {projects.map((project: Project) => (
+                    <ProjectTile key={project.title} {...project} />
+                ))}
+            </div>
+        </main>
     );
 }
