@@ -67,6 +67,11 @@
     transform: translateX(15px);
 }
 
+.map-container {
+    display: flex;
+    margin-top: 40px;
+}
+
 @media (prefers-color-scheme: light) {
     .tile {
         border: 2px solid black;
