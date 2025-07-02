@@ -50,7 +50,7 @@ export default function Resume() {
                     <h2 className="section-header">Technical Skills</h2>
                     <div className="inline">
                         <h3 className="highlight">Languages:</h3> &nbsp;
-                        <p className="general-text">Python, C++, Typescript, C#, Java, SQL, R, JavaScript, Dart</p>
+                        <p className="general-text">Python, C++, Typescript, C#, Java, SQL, R, JavaScript, Dart, HTML, CSS</p>
                     </div>
                     <div className="inline">
                         <h3 className="highlight">Web Frameworks:</h3> &nbsp;
