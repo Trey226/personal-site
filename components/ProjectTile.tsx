@@ -3,8 +3,7 @@ import "./css/Components.css";
 
 export default function ProjectTile({ title, description, image, link, outsideLink }: Project) {
     return (
-        <div className='tile'>
-            <a href={link} target={outsideLink ? '_blank' : '_self'}>
+            <a href={link} target={outsideLink ? '_blank' : '_self'} className='tile'>
                 <div className='pic'> <img src={image} className='tile-img' /></div>
                 <h1 className='proj-title'>
                     {title}
@@ -14,6 +13,5 @@ export default function ProjectTile({ title, description, image, link, outsideLi
                     {description}
                 </div>
             </a>
-        </div>
     );
 }
