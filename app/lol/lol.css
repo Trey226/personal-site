@@ -1,0 +1,29 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    height: 85dvh;
+}
+.content-area {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 900px;
+    height: auto;
+    justify-content: center;
+    box-shadow: gray (0,0,1,1);
+    border-radius: 20px;
+    box-sizing: border-box;
+}
