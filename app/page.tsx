@@ -25,9 +25,9 @@ export default function Home() {
           </div>
         </div>
         <div className="bio">
-        <h1 className="section-header">Hi, I'm Trey!</h1>
+        <h1 className="greeting">Hi, I'm Trey!</h1>
         <br />
-        <p>side 2ddddddd ddddddddddddd dddddddddddddd ddddddddddd ddddddddd ddddddddddddddd dddddddd dddddddddddddddddd</p>
+        <p className="general-text">side 2ddddddd ddddddddddddd dddddddddddddd ddddddddddd ddddddddd ddddddddddddddd dddddddd dddddddddddddddddd</p>
         </div>
       </div>
     </main>

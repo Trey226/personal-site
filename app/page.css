@@ -40,9 +40,10 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 600px;
+    max-width: 550px;
     padding-top: 10px;
-    padding-left: 35px;
+    margin-left:32px;
+    padding-left: 48px;
 }
 
 .pic-container {
@@ -52,7 +53,7 @@ main {
     overflow: hidden;
     outline: auto;
 }
-.section-header {
+.greeting {
     display: flex;
     font-size: 50px;
     justify-content: flex-start;
@@ -69,4 +70,8 @@ main {
 .icon:hover {
     scale: 1.1;
     animation-duration: 300;
+}
+
+.general-text {
+    font-size: 18px;
 }

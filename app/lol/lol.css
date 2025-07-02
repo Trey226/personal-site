@@ -7,11 +7,12 @@ main {
     display: flex;
     align-items: center;
     font-size: 40px;
-    height: 85dvh;
+    height: 500px;
 }
 .content-area {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 15px;
     margin-left: 9px;
@@ -21,9 +22,5 @@ main {
     padding-left: 15px;
     padding-right: 15px;
     max-width: 900px;
-    height: auto;
-    justify-content: center;
-    box-shadow: gray (0,0,1,1);
-    border-radius: 20px;
-    box-sizing: border-box;
+    height: 500px;
 }
