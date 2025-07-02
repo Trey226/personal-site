@@ -63,9 +63,8 @@
     
 }
 
-.interest-tile a {
-    display: flex;
-    overflow: hidden;
+.interest-tile:hover {
+    transform: translateX(15px);
 }
 
 @media (prefers-color-scheme: light) {
