@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Lol() {
     return (
         <main>
-            <div className="content-area">
+            <div className="content-area-lol">
                 <h1 className="text">
                     what did you think was going to happen?
                 </h1>

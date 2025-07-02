@@ -16,7 +16,7 @@ main {
     }
   }
 
-.content-area {
+.content-area-home {
     display: flex;
     justify-content: center;
     align-items: flex-start;

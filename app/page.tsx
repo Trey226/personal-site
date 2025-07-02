@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <div className="content-area">
+      <div className="content-area-home">
         <div className="pic-links">
           <div className="pic">
             <div className="pic-container">
