@@ -100,7 +100,8 @@ export default function Resume() {
                         <ul className="general-text">
                             <li>
                                 Full-stack digital recipe book built using ASP.NET Core, with secure user authentication and a 
-                                normalized MySQL database using Entity Framework for ORM. (Spring ‘25 capstone)
+                                MySQL database using Entity Framework for ORM. <br /> 
+                                (Spring 2025 capstone)
                             </li>
                         </ul>
                     </div>
@@ -112,7 +113,8 @@ export default function Resume() {
                         <ul className="general-text">
                             <li>
                                 This was a group project I did for a Software Engineering class. We followed Agile & Scrum practices. I contributed 
-                                from 10,300km away. (This was the semester I was in Korea.)
+                                from 10,300km away, and 14 hours ahead. <br /> 
+                                (Spring 2024 semester abroad)
                             </li>
                             <li>
                                 It is a single page application that acts as a schedule planner complete with activity tags, and push notifications to alert
