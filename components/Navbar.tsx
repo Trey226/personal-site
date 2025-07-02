@@ -32,7 +32,7 @@ function NavbarItem({href, children, activeLink}: NavbarItemProps ) {
     const isActive = (activeLink === href);
 
     return(
-        <li className={`px-5 content-end-safe text-2xl ${isActive ? 'rotate-540 duration-1500' : 'hover:scale-110'}`}>
+        <li className={`px-5 content-end-safe text-2xl duration-1500 ${isActive ? 'rotate-540' : 'hover:scale-110'}`}>
             <Link href={href}>
                 {children}
             </Link>
