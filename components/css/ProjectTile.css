@@ -1,0 +1,46 @@
+.tile {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 376px;
+    background: white;
+    color: black;
+    border-radius: 15%;
+    outline: black;
+    outline-width: 1px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.proj-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.desc {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    padding: 5px;
+    height: 155px;
+}
+
+.tile-img {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 170px;
+    width: 360;
+}
+
+.pic {
+    display: flex;
+    justify-content: center;
+}
+
+.pad {
+    margin-left: 15px;
+    margin-right: 15px;
+}
