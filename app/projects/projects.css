@@ -1,0 +1,8 @@
+.content-area-projects {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1439px;
+    margin-top: 20px;
+    padding-top: 20px;
+}

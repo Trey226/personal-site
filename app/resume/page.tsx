@@ -14,7 +14,7 @@ export default function Resume() {
                 <div className="contact-info">
                     <a href="mailto:treygilliam1@gmail.com">Treygilliam1@gmail.com</a>
                     &nbsp;
-                    <a href="/">Treymakesthings.com</a>
+                    <a href="/lol">Treymakesthings.com</a>
                 </div>
                 <hr />
                 <div className="professional-summary">
@@ -78,7 +78,7 @@ export default function Resume() {
                     <h2 className="section-header">Projects</h2>
                     <div className="site">
                         <div className="space-between">
-                            <h3 className="highlight"><a href="/">This Site!</a></h3>
+                            <h3 className="highlight"><a href="/lol">This Site!</a></h3>
                             <h3 className="highlight">React, Next.js, HTML, CSS</h3>
                         </div>
                         <ul className="general-text">

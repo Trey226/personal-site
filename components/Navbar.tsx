@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
 
-    const [activeLink, setActiveLink] = useState('');
+    const pathname = usePathname();
 
     return (
         <nav className="hidden md:flex relative justify-center mt-10" style={{backgroundColor: "var(--background)"}}>
 
             <ul className="flex">
-                <NavbarItem href="/" activeLink={activeLink} setActiveLink={setActiveLink}>Home</NavbarItem>
-                <NavbarItem href="/projects" activeLink={activeLink} setActiveLink={setActiveLink}>Projects</NavbarItem>
-                <NavbarItem href="/interests" activeLink={activeLink} setActiveLink={setActiveLink}>Stuff I Like</NavbarItem>
-                <NavbarItem href="/resume" activeLink={activeLink} setActiveLink={setActiveLink}>Resume</NavbarItem>
+                <NavbarItem href="/" activeLink={pathname}>Home</NavbarItem>
+                <NavbarItem href="/projects" activeLink={pathname}>Projects</NavbarItem>
+                <NavbarItem href="/interests" activeLink={pathname}>Stuff I Like</NavbarItem>
+                <NavbarItem href="/resume" activeLink={pathname}>Resume</NavbarItem>
             </ul>
         </nav>
     )
@@ -24,16 +24,15 @@ type NavbarItemProps = {
     href: string;
     children: React.ReactNode;
     activeLink: string;
-    setActiveLink: (href: string) => void;
-  };
+};
 
-function NavbarItem({href, children, activeLink, setActiveLink}: NavbarItemProps ) {
+function NavbarItem({href, children, activeLink}: NavbarItemProps ) {
 
     const isActive = (activeLink === href);
 
     return(
-        <li className={`px-5 content-end-safe text-2xl ${isActive ? 'rotate-540 duration-1500' : ''}`}>
-            <Link href={href} onClick={() => setActiveLink(href)}>
+        <li className={`px-5 content-end-safe text-2xl ${isActive ? 'rotate-540 duration-1500' : 'hover:scale-110'}`}>
+            <Link href={href}>
                 {children}
             </Link>
         </li>
