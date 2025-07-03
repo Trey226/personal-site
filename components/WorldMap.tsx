@@ -32,7 +32,7 @@ const getStyle = ({
     stroke: "black",
     strokeWidth: 1,
     strokeOpacity: .3,
-    cursor: "auto",
+    cursor: countryValue ? "pointer" : "auto",
 });
 
 export default function MapDisplay({ data }: MapDisplayProps) {
