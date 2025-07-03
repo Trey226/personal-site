@@ -21,7 +21,7 @@ export default function MapPageClient() {
                 <h1 className="map-title">Around The World with Trey</h1>
                 <br />
                 <p className="general-text-map">
-                    I have been alive for [add realtime day calculation here]. this is where I have spent them and some of my favorite pictures.
+                    I have been alive for [add realtime day calculation here] days. this is where I have spent them and some of my favorite pictures.
                 </p>
                 <MapDisplayNoSSR data={datas} />
             </div>
