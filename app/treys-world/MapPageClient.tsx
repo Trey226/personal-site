@@ -21,8 +21,7 @@ export default function MapPageClient() {
                 <h1 className="map-title">Around The World with Trey</h1>
                 <br />
                 <p className="general-text-map">
-                    This map highlights all of the countries that I have been to. When you hover over each country it will tell you the number of days that I have spent in that country.
-                    When you click on *most* of the countries it will pop up my favorite pictures I have taken there.
+                    I have been alive for [add realtime day calculation here]. this is where I have spent them and some of my favorite pictures.
                 </p>
                 <MapDisplayNoSSR data={datas} />
             </div>

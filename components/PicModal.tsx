@@ -18,6 +18,7 @@ export default function PicModal({ isOpen, name, close }: PicModalProps) {
                 {/* Use the 'name' prop */}
                 <button onClick={close} className='modal-close'>close</button>
                 <h1 className="modal-title">Pictures from {name}</h1>
+                <div className="modal-footer">small pics here</div>
             </div>
         </div>
     );
