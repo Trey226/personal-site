@@ -3,20 +3,21 @@ import * as React from "react";
 import WorldMap from "react-svg-worldmap";
 import { useState, useEffect } from "react";
 import type { CountryContext, Data } from "react-svg-worldmap";
-import "./css/Components.css";
+import PicModal from "./PicModal";
+import "./Components.css";
 
 
 type MapDisplayProps = {
     data: Data;
 };
 
-function getColor(days: number){
-if (days > 21)
-    return "#004D00";
-if (days > 7)
-    return "#4CAF50"
-else
-return "#A2D9A3";
+function getColor(days: number) {
+    if (days > 21)
+        return "#004D00";
+    if (days > 7)
+        return "#4CAF50"
+    else
+        return "#A2D9A3";
 };
 
 
@@ -27,7 +28,7 @@ const getStyle = ({
     maxValue,
     color,
 }: CountryContext) => ({
-    fill:  getColor(countryValue!),
+    fill: getColor(countryValue!),
     fillOpacity: countryValue ? 1 : 0,
     stroke: "black",
     strokeWidth: 1,
@@ -43,6 +44,33 @@ export default function MapDisplay({ data }: MapDisplayProps) {
         setScreenWidth(window.innerWidth);
     }, []);
 
+    const [modalState, setModalState] = useState({
+        isModalOpen: false,
+        country: "",
+    });
+
+    const handleCloseModal = () => {
+        setModalState({
+            isModalOpen: false,
+            country: "",
+        })
+    }
+
+
+
+    const clickAction = React.useCallback(
+        ({ countryName, countryValue }: CountryContext) => {
+            if (!countryValue || countryValue <= 0) {
+                return;
+              }
+            setModalState({
+                isModalOpen: true,
+                country: countryName,
+            });
+        },
+        [],
+    );
+
     return (
         <div className="map-container">
             <WorldMap
@@ -51,6 +79,13 @@ export default function MapDisplay({ data }: MapDisplayProps) {
                 data={data}
                 valueSuffix="days"
                 frame={true}
+                onClickFunction={clickAction}
+            />
+
+            <PicModal
+                isOpen={modalState.isModalOpen}
+                name={modalState.country}
+                close={handleCloseModal}
             />
         </div>
     );

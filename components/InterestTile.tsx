@@ -1,4 +1,4 @@
-import "./css/Components.css";
+import "./Components.css";
 
 export default function InterestTile() {
     return (

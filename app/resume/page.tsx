@@ -12,7 +12,7 @@ export default function Resume() {
             <div className="paper">
                 <h1 className="name">Trey Gilliam</h1>
                 <div className="contact-info">
-                    <a href="mailto:treygilliam1@gmail.com">Treygilliam1@gmail.com</a>
+                    <a href="mailto:treygilliam1@gmail.com">Treygilliam1(at)gmail.com</a>
                     &nbsp;
                     <a href="/lol">Treymakesthings.com</a>
                 </div>

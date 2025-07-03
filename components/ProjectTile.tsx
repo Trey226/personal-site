@@ -1,5 +1,5 @@
 import { Project } from '@/_data/projects';
-import "./css/Components.css";
+import "./Components.css";
 
 export default function ProjectTile({ title, description, image, link, outsideLink }: Project) {
     return (
