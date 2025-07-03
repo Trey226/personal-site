@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "./Components.css";
 
 type PicModalProps = {
@@ -17,8 +16,8 @@ export default function PicModal({ isOpen, name, close }: PicModalProps) {
         <div className="modal-overlay" /*onClick={close}*/>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 {/* Use the 'name' prop */}
-                <h2>Pictures from {name}</h2>
-                <button onClick={close}>Close</button>
+                <button onClick={close} className='modal-close'>close</button>
+                <h1 className="modal-title">Pictures from {name}</h1>
             </div>
         </div>
     );
