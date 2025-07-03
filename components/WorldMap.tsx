@@ -60,7 +60,7 @@ export default function MapDisplay({ data }: MapDisplayProps) {
 
     const clickAction = React.useCallback(
         ({ countryName, countryValue }: CountryContext) => {
-            if (!countryValue || countryValue <= 0) {
+            if (!countryValue) {
                 return;
               }
             setModalState({
