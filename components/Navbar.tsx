@@ -15,7 +15,7 @@ export default function Navbar() {
                 <NavbarItem href="/projects" activeLink={pathname}>Projects</NavbarItem>
                 <NavbarItem href="/interests" activeLink={pathname}>Stuff I Like</NavbarItem>
                 <NavbarItem href="/resume" activeLink={pathname}>Resume</NavbarItem>
-                <NavbarItem href="/treys-world" activeLink={pathname}>Treys World</NavbarItem>
+                <NavbarItem href="/treys-world" activeLink={pathname}>Trey's World</NavbarItem>
             </ul>
         </nav>
     )

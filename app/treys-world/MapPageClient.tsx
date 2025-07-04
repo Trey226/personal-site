@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import dynamic from 'next/dynamic';
-import { datas } from "@/_data/map";
+import { datas, totalDays } from "@/_data/map";
 import "./map.css"
 
 
@@ -21,7 +21,7 @@ export default function MapPageClient() {
                 <h1 className="map-title">Around The World with Trey</h1>
                 <br />
                 <p className="general-text-map">
-                    I have been alive for [add realtime day calculation here] days. Here's where I've spent them and some of my favorite pictures.
+                    I have been alive for {totalDays} days (unless something terrible has happened in which case this will update forever anyways). Here's how I've spent them, and some pictures of my favorite ones.
                 </p>
                 <MapDisplayNoSSR data={datas} />
             </div>

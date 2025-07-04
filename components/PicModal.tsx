@@ -10,7 +10,7 @@ type PicModalProps = {
 export default function PicModal({ isOpen, name, close }: PicModalProps) {
 
 
-    //this useEffect prevents scrolling of the backpage while the modal is open
+    //this prevents scrolling of the backpage while the modal is open
     useEffect(() => {
         if (isOpen) {
           document.body.style.overflow = 'hidden';
@@ -25,7 +25,7 @@ export default function PicModal({ isOpen, name, close }: PicModalProps) {
     }
 
     return (
-        <div className="modal-overlay" /*onClick={close}*/>
+        <div className="modal-overlay" /*onClick={close} commented this out for now because I didnt like the click outside to close functionality*/>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 {/* Use the 'name' prop */}
                 <button onClick={close} className='modal-close'>x</button>
