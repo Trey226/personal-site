@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "./globals.css"
+import LightModePopup from "@/components/LightModePopup";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -17,10 +18,10 @@ export default function Home() {
             </div>
           </div>
           <div className="links">
-            <a href="https://linkedin.com/in/Trey226"><img src="/LinkedIn.png" alt="LinkedIn" width={85} height={85} className="icon" /></a>
-            <a href="https://discord.gg/GQXdTJmy3N"><img src="/Discord.svg" alt="Discord" width={85} height={85} className="icon"/></a>
-            <a href="https://github.com/Trey226"><img src="GitHub-lightmode.svg" alt="Github" width={75} height={75} className="only-on-light icon"/></a>
-            <a href="https://github.com/Trey226"><img src="GitHub-darkmode.svg" alt="Github" width={75} height={75} className="only-on-dark icon"/></a>
+            <a href="https://linkedin.com/in/Trey226" target="_blank" rel="noopener noreferrer"><img src="/LinkedIn.png" alt="LinkedIn" width={85} height={85} className="icon" /></a>
+            <a href="https://discord.gg/GQXdTJmy3N" target="_blank" rel="noopener noreferrer"><img src="/Discord.svg" alt="Discord" width={85} height={85} className="icon"/></a>
+            <a href="https://github.com/Trey226" target="_blank" rel="noopener noreferrer"><img src="GitHub-lightmode.svg" alt="Github" width={75} height={75} className="only-on-light icon"/></a>
+            <a href="https://github.com/Trey226" target="_blank" rel="noopener noreferrer"><img src="GitHub-darkmode.svg" alt="Github" width={75} height={75} className="only-on-dark icon"/></a>
           </div>
         </div>
         <div className="bio">
@@ -43,6 +44,7 @@ export default function Home() {
         </p>
         </div>
       </div>
+      <LightModePopup />
     </main>
   );
 }

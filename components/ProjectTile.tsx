@@ -3,7 +3,7 @@ import "./Components.css";
 
 export default function ProjectTile({ title, description, image, link, outsideLink }: Project) {
     return (
-            <a href={link} target={outsideLink ? '_blank' : '_self'} className='tile'>
+            <a href={link} target={outsideLink ? '_blank' : '_self'} className='tile' rel="noopener noreferrer">
                 <div className='pic'> <img src={image} className='tile-img' /></div>
                 <h1 className='proj-title'>
                     {title}
