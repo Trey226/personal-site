@@ -13,15 +13,12 @@ export default function PicModal({ isOpen, name, close }: PicModalProps) {
     const [currentPic, setCurrentPic] = useState(0);
 
     const handlePrevious = () => {
-        // Here's your overflow logic!
-        // If the current pic is the first one, loop to the end. Otherwise, go back one.
-        const newIndex = currentPic === 0 ? pics.length - 1 : currentPic - 1;
+        const newIndex = (currentPic === 0) ? pics.length - 1 : currentPic - 1;
         setCurrentPic(newIndex);
       };
     
       const handleNext = () => {
-        // And the other way for the next button
-        const newIndex = currentPic === pics.length - 1 ? 0 : currentPic + 1;
+        const newIndex = (currentPic === (pics.length - 1)) ? 0 : currentPic + 1;
         setCurrentPic(newIndex);
       };
 

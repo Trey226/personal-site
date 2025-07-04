@@ -1,20 +1,24 @@
 type pic = {
-    src: string,
-    country: string
+    src: string, // filepath
+    country: string  // 2 letter country code
+    date: string // "month / year"
 }
 
 const allPics: pic[] = [
     {
         src: "/twpics/",
-        country: ""
+        country: "",
+        date: ""
     },
     {
         src: "/twpics/",
-        country: ""
+        country: "",
+        date: ""
     },
     {
         src: "/twpics/",
-        country: ""
+        country: "",
+        date: ""
     },
 ]
 
