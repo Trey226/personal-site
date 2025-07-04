@@ -1,11 +1,26 @@
+import type { Interest } from "@/_data/interests";
 import "./Components.css";
 
-export default function InterestTile() {
+type InterestTileProps = {
+    link: string,
+    linkType: string,
+    text: string,
+}
+
+export default function InterestTile({linkType, link, text}: InterestTileProps) {
+
+    let iconPath = `./${linkType}.png`
+
     return (
-        <a href="/interests" className="interest-tile">
-            <p>
-                Stuff here
-            </p>
+        <a href={link} className="interest-tile" target="_blank" rel="noopener noreferrer">
+            <div className="flex items-center">
+                <div className="interest-tile-icon">
+                    <img src={iconPath} width={35} />
+                </div>
+                <p className="interest-tile-text">
+                    {text}
+                </p>
+            </div>
         </a>
     );
 }
