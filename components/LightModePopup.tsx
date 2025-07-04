@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Components.css";
 
+
 export default function LightModePopup() {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -10,15 +11,15 @@ export default function LightModePopup() {
 
 
   const titles = [
-    "It's 2025, you should be using darkmode",
-    "Seriously? It will take you 7 seconds, I timed myself.",
+    `It's ${new Date().getFullYear()}, you should be using darkmode`,
+    "Seriously? It will take you 6 seconds, I timed myself.",
     "You're a lost cause.",
     "Thank you for coming to my Ted Talk!",
   ]
   
   const messages = [
-    <p>It's easy don't worry! <br /> First, open a new tab by pressing the "+" at the top of your screen <br />Next, in the bottom right corner you will see "Customize Chrome" - click that <br />Now in the middle of the right side of your screen, you will see a button that says "Dark" - click that. <br /> Now you're done! </p>,
-    <p>New tab<br /> "Customize Chrome" at the bottom right<br /> "Dark"</p>,
+    <p>It's easy don't worry! <br /> First, press "alt + e"<br />Next, hover over the 4th option from the bottom titled "More tools" <br />Now, the 3rd option from the top says "Customize Chrome" click that <br /> Now click on "Dark" and youre done! </p>,
+    <p>Press "alt + e"<br /> Hover "More tools"<br /> Click "Customize Chrome"<br />Click "Dark"</p>,
     "",
     "You will be happy you made the switch."
   ];
@@ -48,6 +49,10 @@ export default function LightModePopup() {
       screenWidth = window.innerWidth;
     }
   }, []);
+  
+  if (!showPopup || screenWidth < 800) {
+    return null;
+  }
 
   const handleInteraction = () => {
     const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
@@ -76,10 +81,6 @@ export default function LightModePopup() {
       setShowPopup(false); 
     }
   };
-
-  if (!showPopup || screenWidth < 800) {
-    return null;
-  }
 
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">

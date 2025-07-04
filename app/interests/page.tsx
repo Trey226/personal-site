@@ -31,7 +31,7 @@ export default function Interests() {
                     </div>
                 </div>
                 <div className="content-column">
-                    <h1 className="column-header">Personal Stuff</h1>
+                    <h1 className="column-header">Random Stuff</h1>
                     <br />
                     <div className="tile-container">
                         <InterestTile />

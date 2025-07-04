@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import "./globals.css"
-import LightModePopup from "@/components/LightModePopup";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -44,7 +43,6 @@ export default function Home() {
         </p>
         </div>
       </div>
-      <LightModePopup />
     </main>
   );
 }
