@@ -51,20 +51,32 @@
 
 .interest-tile {
     display: flex;
-    width: 250px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 20px;
-    margin-left: 20px;
-    padding: 15px;
+    width: 300px;
+    min-height: 45px;
+    margin-bottom: 12px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 3px;
     background: aliceblue;
     color: black;
     border-radius: 15px;
+    font-size: 18px;
 
 }
 
 .interest-tile:hover {
     transform: translateX(15px);
+}
+
+.interest-tile-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.interest-tile-text {
 }
 
 .map-container {
@@ -110,14 +122,20 @@
 }
 
 .modal-title {
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
-    height: 20vh;
     margin: 10px;
     padding: 10px;
     bottom: 0;
