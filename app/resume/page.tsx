@@ -99,7 +99,7 @@ export default function Resume() {
                         </div>
                         <ul className="general-text">
                             <li>
-                                Full-stack digital recipe book built using ASP.NET Core, with secure user authentication and a 
+                                Fully featured digital recipe book built using ASP.NET Core, with secure user authentication and a 
                                 MySQL database using Entity Framework for ORM. <br /> 
                                 (Spring 2025 capstone)
                             </li>

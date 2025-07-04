@@ -8,7 +8,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className="hidden md:flex relative justify-center mt-10" style={{backgroundColor: "var(--background)"}}>
+        <nav className="hidden md:flex relative justify-center mt-10" style={{ backgroundColor: "var(--background)" }}>
 
             <ul className="flex">
                 <NavbarItem href="/" activeLink={pathname}>Home</NavbarItem>
@@ -27,12 +27,12 @@ type NavbarItemProps = {
     activeLink: string;
 };
 
-function NavbarItem({href, children, activeLink}: NavbarItemProps ) {
+function NavbarItem({ href, children, activeLink }: NavbarItemProps) {
 
     const isActive = (activeLink === href);
 
-    return(
-        <li className={`px-5 content-end-safe text-2xl duration-1500 ${isActive ? 'rotate-540' : 'hover:scale-110'}`}>
+    return (
+        <li className={` px-5 content-end-safe text-2xl transition-transform duration-1000 ${isActive ? 'rotate-540' : ''}`}>
             <Link href={href}>
                 {children}
             </Link>

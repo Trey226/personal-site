@@ -9,7 +9,7 @@ export type Project = {
 export const projects: Project[] = [
     {
         title: "Trey Makes Things",
-        description: "I made this thing to show other things I've made. This was my first time using Next.js so beyond being functional it was a good way to learn. I strive to have more \"silly\" projects than serious ones.",
+        description: "I made this thing to show off other things I've made. This was my first time using TypeScript and React so beyond being functional it was a good way to learn. I strive to have more \"silly\" projects than serious ones.",
         image: "/nextjs.png",
         link: "/lol",
         outsideLink: false
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     },
     {
         title: "Virtual Interview",
-        description: "This is just a random idea I had while using NotebookLM. This is *supposed* to be a tool that you can ask questions as if I was being interviewed and it *should* spit out answers in about the same way that I would answer. ",
+        description: "This is just a random idea I had while using Google's NotebookLM. This is *supposed* to be a tool that you can ask questions as if I was being interviewed and it *should* spit out answers in about the same way that I would answer. ",
         image: "/stick-figure.png",
         link: "#",
         outsideLink: false
