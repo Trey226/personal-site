@@ -122,14 +122,20 @@
 }
 
 .modal-title {
-    font-size: 20px;
+    font-size: 30px;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-footer {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: absolute;
-    height: 20vh;
     margin: 10px;
     padding: 10px;
     bottom: 0;
