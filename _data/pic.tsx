@@ -410,10 +410,8 @@ export function getCountrySpecificPics(code:string){
     for (let index = 0; index < allPics.length; index++) {
         const element = allPics[index];
 
-        const picToAdd:pic = element;
-
         if(element.country === code){
-            countrySpecificPics.push(picToAdd)
+            countrySpecificPics.push(element)
         }
         
     }
