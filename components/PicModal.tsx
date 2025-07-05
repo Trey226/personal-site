@@ -62,7 +62,7 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
         <h1 className="modal-title">Pictures from {name}</h1>
         <h2>{pics[currentPic].date}</h2>
         <div className='display'>
-          <a href={pics[currentPic].src} target='_blank' rel="noopener noreferrer"><img src={pics[currentPic].src} height={500} width={450} /></a>
+          <a href={pics[currentPic].src} target='_blank' rel="noopener noreferrer" className="modal-image-link"><img src={pics[currentPic].src} className='modal-image' /></a>
         </div>
         <div className="modal-footer">
           <button className='prev-btn rotate-y-180 mr-2 cursor-pointer' onClick={handlePrevious}><img src="/arrow.png" height={50} width={50} /></button>
