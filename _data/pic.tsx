@@ -1,32 +1,23 @@
-type pic = {
-    src: string,
-    country: string
+export type pic = {
+    src: string, // filepath
+    country: string  // 2 letter ISO code
+    date: string // "month / year"
 }
 
-const allPics: pic[] = [
-    {
-        src: "/twpics/",
-        country: ""
-    },
-    {
-        src: "/twpics/",
-        country: ""
-    },
-    {
-        src: "/twpics/",
-        country: ""
-    },
+export const allPics:pic[] = [
+
 ]
 
 
-export function getCountrySpecificPics(country:string){
-    let countrySpecificPics = [];
+
+export function getCountrySpecificPics(code:string){
+    let countrySpecificPics:pic[] = []
 
     for (let index = 0; index < allPics.length; index++) {
         const element = allPics[index];
 
-        if(element.country === country){
-            countrySpecificPics.push(element.src)
+        if(element.country === code){
+            countrySpecificPics.push(element)
         }
         
     }

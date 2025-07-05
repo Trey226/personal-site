@@ -1,8 +1,9 @@
 'use client'
+
 import * as React from "react";
 import WorldMap from "react-svg-worldmap";
+import type { CountryContext, Data, } from "react-svg-worldmap";
 import { useState, useEffect } from "react";
-import type { CountryContext, Data } from "react-svg-worldmap";
 import PicModal from "./PicModal";
 import "./Components.css";
 
@@ -47,25 +48,28 @@ export default function MapDisplay({ data }: MapDisplayProps) {
     const [modalState, setModalState] = useState({
         isModalOpen: false,
         country: "",
+        code: ""
     });
 
     const handleCloseModal = () => {
         setModalState({
             isModalOpen: false,
             country: "",
+            code: ""
         })
     }
 
 
 
     const clickAction = React.useCallback(
-        ({ countryName, countryValue }: CountryContext) => {
+        ({ countryName, countryValue, countryCode }: CountryContext) => {
             if (!countryValue) {
                 return;
-              }
+            }
             setModalState({
                 isModalOpen: true,
                 country: countryName,
+                code: countryCode
             });
         },
         [],
@@ -85,6 +89,7 @@ export default function MapDisplay({ data }: MapDisplayProps) {
             <PicModal
                 isOpen={modalState.isModalOpen}
                 name={modalState.country}
+                code={modalState.code}
                 close={handleCloseModal}
             />
         </div>

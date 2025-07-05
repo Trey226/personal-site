@@ -1,0 +1,98 @@
+/* .content-area-json {
+    display: flex;
+    flex-direction: column;
+    width: 1100px;
+    height: 87vh;
+    margin-top: 25px;
+    background-color: rgb(83, 83, 83);
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.output {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+} */
+
+/* Main container for the tool */
+.contentArea {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Puts space between the input and output sections */
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+    border: 1px solid #eaeaea;
+    max-width: 800px;
+    margin: 2rem auto; /* Center the component on the page */
+  }
+  
+  /* Container for the controls */
+  .inputArea {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Hide the default file input because it's ugly and unstyleable */
+  .fileInput {
+    display: none;
+  }
+  
+  /* Style the label to look like a button. This is the standard trick. */
+  .fileInputLabel {
+    cursor: pointer;
+    padding: 0.65rem 1rem;
+    border-radius: 5px;
+    background-color: #3052eb;
+    border: 1px solid #ccc;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .fileInputLabel:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
+  }
+  
+  /* Style the main action button */
+  .generateButton {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #0070f3; /* A nice, Vercel-like blue */
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .generateButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the disabled state of the button */
+  .generateButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Style the preformatted text block for the JSON output */
+  .outputPre {
+    background-color: #111; /* Dark background for contrast */
+    color: #00ff9c; /* A nice green for the text */
+    padding: 1rem;
+    border-radius: 8px;
+    max-height: 800px; /* Prevent it from getting too tall */
+    overflow: auto; /* Add scrollbars if content overflows */
+    white-space: pre-wrap; /* Wrap long lines */
+    word-break: break-all;
+  }
