@@ -1,22 +1,28 @@
 from flask import Flask, request, jsonify
 import re
 import math
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
-# Download required NLTK data. This is idempotent (safe to run every time)
-# and works both locally and in serverless environments like Vercel.
-nltk.download(['punkt', 'stopwords', 'punkt_tab'], quiet=True)
-
-STOPWORDS = set(stopwords.words('english'))
+# this is the NLTK stopwords list plus ones I have run into such as "eg"
+STOPWORDS = {
+    "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", 
+    "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", 
+    "theirs", "themselves", "what", "which", "who", "whom", "this", "that", "these", "those", "am", "is", "are", "was", 
+    "were", "be", "been", "being", "have", "has", "had", "having", "do", "does", "did", "doing", "a", "an", "the", "and", 
+    "but", "if", "or", "because", "as", "until", "while", "of", "at", "by", "for", "with", "about", "against", "between", 
+    "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", 
+    "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", 
+    "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", 
+    "s", "t", "can", "will", "just", "don", "should", "now", "eg", "work"
+}
 
 def preprocess_text(text):
+    """Cleans text without NLTK."""
     text = text.lower()
     text = re.sub(r'[^a-z\s]', '', text)
-    tokens = word_tokenize(text)
+    # Use simple split(), which works perfectly after removing punctuation.
+    tokens = text.split()
     return [word for word in tokens if word not in STOPWORDS]
 
 def cosine_similarity(vec1, vec2):
@@ -45,7 +51,6 @@ def analyze_route():
     all_words = sorted(list(set(resume_tokens + jd_tokens)))
     vocab = {word: i for i, word in enumerate(all_words)}
 
-    # Create frequency vectors using standard Python lists
     resume_vec = [0] * len(all_words)
     for word in resume_tokens:
         if word in vocab:
