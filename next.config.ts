@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+
+  output: 'standalone',                 //this *should* fix my serverless function size issues
+  outputFileTracingExcludes: {
+    '/api/**/*': ['./node_modules/**/*'],
+  },
+
   rewrites: async () => {
     return [
       {
