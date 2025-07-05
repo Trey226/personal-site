@@ -1,6 +1,7 @@
-'use client'; // This marks the component as a Client Component
+'use client';
 
 import { useState } from 'react';
+import './keyword.css';
 
 // Define the structure of the analysis result
 interface AnalysisResult {
@@ -33,7 +34,10 @@ export default function HomePage() {
       });
 
       if (!response.ok) {
-        throw new Error('Something went wrong with the analysis.');
+        // Try to parse the error response from the server
+        const errorData = await response.json().catch(() => null);
+        const errorMessage = errorData?.error || 'Something went wrong with the analysis.';
+        throw new Error(errorMessage);
       }
 
       const data: AnalysisResult = await response.json();
@@ -48,8 +52,7 @@ export default function HomePage() {
   // Function to generate the LLM prompt
   const generatePrompt = () => {
     if (!result) return '';
-    return `
-**My Goal:** I need to tailor my resume to better match this job description. Please act as an expert career coach and help me.
+    return `**My Goal:** I need to tailor my resume to better match this job description. Please act as an expert career coach and help me.
 
 **The Job Description is:**
 ${jobDescription}
@@ -66,80 +69,85 @@ Based on all the information above, please suggest specific, concrete changes to
   };
 
   return (
-    <main className="container mx-auto p-8 font-sans">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-2">Resume & Job Description Analyzer 🤖</h1>
-        <p className="text-lg text-gray-600">
-          Paste your resume and a job description to get an instant analysis and a tailored prompt for your favorite LLM.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        <div>
-          <label htmlFor="resume" className="block text-lg font-medium mb-2">Your Resume</label>
-          <textarea
-            id="resume"
-            className="w-full h-96 p-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500"
-            value={resume}
-            onChange={(e) => setResume(e.target.value)}
-            placeholder="Paste your full resume here..."
-          />
+    <main className="keyword-checker-page">
+      <div className="analyzer-container">
+        <div className="analyzer-header">
+          <h1>Resume & Job Description Analyzer 🤖</h1>
+          <p>
+            Paste your resume and a job description to get an instant analysis and a tailored prompt for your favorite LLM.
+          </p>
         </div>
-        <div>
-          <label htmlFor="jobDescription" className="block text-lg font-medium mb-2">Job Description</label>
-          <textarea
-            id="jobDescription"
-            className="w-full h-96 p-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500"
-            value={jobDescription}
-            onChange={(e) => setJobDescription(e.target.value)}
-            placeholder="Paste the full job description here..."
-          />
-        </div>
-      </div>
 
-      <div className="text-center mt-8">
-        <button
-          onClick={handleAnalysis}
-          disabled={isLoading || !resume || !jobDescription}
-          className="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-xl hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all"
-        >
-          {isLoading ? 'Analyzing...' : 'Analyze ✨'}
-        </button>
-      </div>
-
-      {error && <div className="mt-8 p-4 bg-red-100 text-red-700 rounded-md text-center">{error}</div>}
-
-      {result && (
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg border">
-          <h2 className="text-2xl font-bold mb-4">Analysis Complete!</h2>
-          <div className="text-xl mb-4">
-            <strong>Match Score:</strong>
-            <span className="font-mono bg-blue-100 text-blue-800 py-1 px-3 rounded-md ml-2">
-              {`${(result.match_score * 100).toFixed(2)}%`}
-            </span>
-          </div>
-          <div className="mb-6">
-            <strong className="text-xl">Missing Keywords from Job Description:</strong>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {result.missing_keywords.map((keyword) => (
-                <span key={keyword} className="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-1 rounded">
-                  {keyword}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-2">Your Custom LLM Prompt:</h3>
-            <p className="mb-4 text-gray-600">Copy the text below and paste it into ChatGPT, Gemini, Claude, or your LLM of choice.</p>
+        <div className="analyzer-grid">
+          <div className="textarea-container">
+            <label htmlFor="resume">Your Resume</label>
             <textarea
-              readOnly
-              className="w-full h-80 p-4 font-mono text-sm bg-gray-900 text-white rounded-md"
-              value={generatePrompt()}
+              id="resume"
+              className="analyzer-textarea"
+              value={resume}
+              onChange={(e) => setResume(e.target.value)}
+              placeholder="Paste your full resume here..."
+            />
+          </div>
+          <div className="textarea-container">
+            <label htmlFor="jobDescription">Job Description</label>
+            <textarea
+              id="jobDescription"
+              className="analyzer-textarea"
+              value={jobDescription}
+              onChange={(e) => setJobDescription(e.target.value)}
+              placeholder="Paste the full job description here..."
             />
           </div>
         </div>
-      )}
+
+        <div className="analyzer-button-container">
+          <button
+            onClick={handleAnalysis}
+            disabled={isLoading || !resume || !jobDescription}
+            className="analyzer-button"
+          >
+            {isLoading ? 'Analyzing...' : 'Analyze ✨'}
+          </button>
+        </div>
+
+        {error && <div className="analyzer-error">{error}</div>}
+
+        {result && (
+          <div className="analyzer-results">
+            <h2>Analysis Complete!</h2>
+            <div className="score-and-keywords">
+              <div className="analyzer-score">
+                <strong>Match Score</strong>
+                <div className="score-value flex-col">
+                  {`${(result.match_score * 100).toFixed(1)}%`}
+                  <p className='text-2xl'>{result.match_score < .5? "You're cooked" : "Good Luck"}</p>
+                </div>
+              </div>
+              <div className="missing-keywords-container">
+                <strong>Missing Keywords</strong>
+                <div className="keywords-list">
+                  {result.missing_keywords.map((keyword) => (
+                    <span key={keyword} className="analyzer-keyword">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="prompt-container">
+              <h3>Your Custom LLM Prompt</h3>
+              <p>Copy the text below and paste it into ChatGPT, Gemini, Claude, or your LLM of choice.</p>
+              <textarea
+                readOnly
+                className="prompt-textarea"
+                value={generatePrompt()}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </main>
   );
 }

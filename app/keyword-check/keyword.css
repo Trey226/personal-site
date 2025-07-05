@@ -1,0 +1,240 @@
+/* Define a dark theme color palette for the page */
+.keyword-checker-page {
+    --bg-color: #171717; /* Very dark blue-gray, almost black */
+    --primary-text-color: #c9d1d9; /* Light gray for body text */
+    --secondary-text-color: #8b949e; /* Medium gray for subtitles, labels */
+    --accent-color: #58a6ff; /* A vibrant blue for interactive elements */
+    --accent-color-hover: #79c0ff; /* A lighter blue for hover states */
+    --border-color: #30363d; /* A subtle border color */
+    --component-bg-color: #161b22; /* Dark background for textareas, results */
+    --error-bg-color: rgba(248, 81, 73, 0.1);
+    --error-text-color: #f85149;
+    --success-text-color: #58a6ff;
+    --keyword-bg-color: rgba(45, 112, 195, 0.2);
+    --keyword-text-color: #58a6ff;
+    --code-bg-color: #010409;
+}
+
+/* Apply base styles to the main container */
+.keyword-checker-page {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. Typography
+   ========================================================================== */
+
+.analyzer-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: #f0f6fc; /* Almost white for the main heading */
+    margin-bottom: 0.5rem;
+}
+
+.analyzer-header p {
+    font-size: 1.125rem;
+    color: var(--secondary-text-color);
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. Layout and Containers
+   ========================================================================== */
+
+.analyzer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.analyzer-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.analyzer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .analyzer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.textarea-container label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--secondary-text-color);
+}
+
+.analyzer-textarea {
+    width: 100%;
+    height: 30rem; /* Increased height */
+    padding: 1.5rem;
+    background-color: var(--component-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    font-size: 0.9rem;
+    color: var(--primary-text-color);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analyzer-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+}
+
+.analyzer-button-container {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.analyzer-button {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 0.875rem 2.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.analyzer-button:hover:not(:disabled) {
+    background-color: var(--accent-color-hover);
+    transform: translateY(-2px);
+}
+
+.analyzer-button:disabled {
+    background-color: #21262d; /* A disabled gray */
+    color: #8b949e;
+    cursor: not-allowed;
+}
+
+.analyzer-error {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--error-bg-color);
+    color: var(--error-text-color);
+    border: 1px solid var(--error-text-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+.analyzer-results {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background-color: var(--component-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.analyzer-results h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.score-and-keywords {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .score-and-keywords {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.analyzer-score {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.analyzer-score strong {
+    display: block;
+    font-size: 1.25rem;
+    color: var(--primary-text-color);
+    margin-bottom: 1rem;
+}
+
+.analyzer-score .score-value {
+    font-size: 3rem;
+    font-weight: 800;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    color: var(--success-text-color);
+    background: linear-gradient(330deg, #2563eb, #58a6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+
+.missing-keywords-container {
+    flex-basis: 70%;
+}
+
+.missing-keywords-container strong {
+    display: block;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.analyzer-keyword {
+    background-color: var(--keyword-bg-color);
+    color: var(--keyword-text-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.375rem 0.875rem;
+    border-radius: 16px;
+    border: 1px solid var(--accent-color);
+}
+
+.prompt-container h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.prompt-container p {
+    color: var(--secondary-text-color);
+    margin-bottom: 1rem;
+}
+
+.prompt-textarea {
+    width: 100%;
+    height: 20rem;
+    padding: 1.5rem;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    font-size: 0.875rem;
+    background-color: var(--code-bg-color);
+    color: #e6edf3;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: vertical;
+}
