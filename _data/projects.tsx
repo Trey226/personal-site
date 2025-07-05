@@ -44,7 +44,7 @@ export const projects: Project[] = [
     },
     {
         title: "JSON Generator",
-        description: "If for some reason you need images turned into JSON data the exact way I am using in this project, this is the tool for you. I made it because I was tired of manually writing JSON.",
+        description: "Parses image metadata for GPS coordinates to determine the country it is from. Then it assembles a JSON object that Trey's World uses to display the pics by country. This one is more for me than you. :)",
         image: "/json.png",
         link: "/json-generator",
         outsideLink: false

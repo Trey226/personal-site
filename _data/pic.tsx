@@ -1,35 +1,19 @@
+import { allPics } from "./onlyPics"
+
 export type pic = {
     src: string, // filepath
-    country: string  // 2 letter country code
+    country: string  // 2 letter ISO code
     date: string // "month / year"
 }
 
-const allPics: pic[] = [
-    {
-        src: "/twpics/",
-        country: "",
-        date: ""
-    },
-    {
-        src: "/twpics/",
-        country: "",
-        date: ""
-    },
-    {
-        src: "/twpics/",
-        country: "",
-        date: ""
-    },
-]
 
-
-export function getCountrySpecificPics(country:string){
+export function getCountrySpecificPics(code:string){
     let countrySpecificPics = [];
 
     for (let index = 0; index < allPics.length; index++) {
         const element = allPics[index];
 
-        if(element.country === country){
+        if(element.country === code){
             countrySpecificPics.push(element.src)
         }
         
