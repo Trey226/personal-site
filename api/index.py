@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
-import numpy as np
-import nltk
 import re
+import math
+import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
@@ -20,8 +20,11 @@ def preprocess_text(text):
     return [word for word in tokens if word not in STOPWORDS]
 
 def cosine_similarity(vec1, vec2):
-    dot_product = np.dot(vec1, vec2)
-    norm_product = np.linalg.norm(vec1) * np.linalg.norm(vec2)
+    """Calculates cosine similarity using pure Python."""
+    dot_product = sum(v1 * v2 for v1, v2 in zip(vec1, vec2))
+    norm_a = math.sqrt(sum(v**2 for v in vec1))
+    norm_b = math.sqrt(sum(v**2 for v in vec2))
+    norm_product = norm_a * norm_b
     return dot_product / norm_product if norm_product != 0 else 0.0
 
 @app.route("/api/analyze", methods=['POST'])
@@ -42,12 +45,13 @@ def analyze_route():
     all_words = sorted(list(set(resume_tokens + jd_tokens)))
     vocab = {word: i for i, word in enumerate(all_words)}
 
-    resume_vec = np.zeros(len(all_words))
+    # Create frequency vectors using standard Python lists
+    resume_vec = [0] * len(all_words)
     for word in resume_tokens:
         if word in vocab:
             resume_vec[vocab[word]] += 1
 
-    jd_vec = np.zeros(len(all_words))
+    jd_vec = [0] * len(all_words)
     for word in jd_tokens:
         if word in vocab:
             jd_vec[vocab[word]] += 1
