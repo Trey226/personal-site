@@ -18,14 +18,14 @@ export const projects: Project[] = [
         title: "Ctrl-C Ctrl-Eat",
         description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It was built using ASP.NET Core, Entity Framework, and a MySQL Server.",
         image: "/CtrlC.png",
-        link: "https://ctrlc-ctrleat-cqbph7fxbhcpdzh0.centralus-01.azurewebsites.net/",
+        link: "https://ctrlc-ctrleat-cqbph7fxbhcpdzh0.centralus-01.azurewebsites.net?LoginEmail=test@example.com&LoginPassword=password",
         outsideLink: true
     },
     {
         title: "OnTime",
         description: "This is a group project for a Software Engineering course. It is a FireBase single page application that allows creating, managing, and notification of tasks. It was built using FireBase, JS, and a Firestore database.",
         image: "/ontimeLogo.png",
-        link: "https://ontime.treymakesthings.com",
+        link: "https://ontime.treymakesthings.com?email=example@example.com&password=password",
         outsideLink: true
     },
     {
