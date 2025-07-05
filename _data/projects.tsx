@@ -41,5 +41,12 @@ export const projects: Project[] = [
         image: "/stick-figure.png",
         link: "#",
         outsideLink: false
+    },
+    {
+        title: "JSON Generator",
+        description: "If for some reason you need images turned into JSON data the exact way I am using in this project, this is the tool for you. I made it because I was tired of manually writing JSON.",
+        image: "/json.png",
+        link: "/json-generator",
+        outsideLink: false
     }
 ]

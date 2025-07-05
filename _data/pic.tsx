@@ -1,4 +1,4 @@
-type pic = {
+export type pic = {
     src: string, // filepath
     country: string  // 2 letter country code
     date: string // "month / year"
