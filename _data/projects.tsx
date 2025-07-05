@@ -32,7 +32,7 @@ export const projects: Project[] = [
         title: "Beat the ATS",
         description: "This is a tool written in python that takes your resume and a specific job description and analyzes the most important keywords to include in your resume to get reccomended by ATS software.",
         image: "/keyword.png",
-        link: "#",
+        link: "/keyword-check",
         outsideLink: false
     },
     {
