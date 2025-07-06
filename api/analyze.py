@@ -93,22 +93,3 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(dumps(response_data).encode('utf-8'))
         return
-
-
-
-
-
-
-
-
-
-
-
-Video
-
-Deep Research
-
-Canvas
-
-Gemini can make mistakes, so double-check it
-
