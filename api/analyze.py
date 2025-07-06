@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify
 import re
 import math
+import json
+from http.server import BaseHTTPRequestHandler
 
-app = Flask(__name__)
+# It's more efficient to define these helpers and constants outside the class
+# so they are not recreated for every single request.
 
-# this is the NLTK stopwords list plus ones I have run into such as "eg"
 STOPWORDS = {
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", 
     "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "they", "them", "their", 
@@ -21,7 +22,6 @@ def preprocess_text(text):
     """Cleans text without NLTK."""
     text = text.lower()
     text = re.sub(r'[^a-z\s]', '', text)
-    # Use simple split(), which works perfectly after removing punctuation.
     tokens = text.split()
     return [word for word in tokens if word not in STOPWORDS]
 
@@ -33,46 +33,70 @@ def cosine_similarity(vec1, vec2):
     norm_product = norm_a * norm_b
     return dot_product / norm_product if norm_product != 0 else 0.0
 
-@app.route("/api/analyze", methods=['POST'])
-def analyze_route():
-    try:
-        data = request.get_json()
-        resume_text = data['resume']
-        job_description_text = data['job_description']
-    except (TypeError, KeyError):
-        return jsonify({"error": "Request must be JSON with 'resume' and 'job_description' keys."}), 400
+class handler(BaseHTTPRequestHandler):
+    
+    def do_POST(self):
+        """
+        Handles POST requests, gets the JSON body, processes it,
+        and returns the analysis.
+        """
+        # 1. Read the body of the POST request
+        try:
+            content_length = int(self.headers['Content-Length'])
+            body = self.rfile.read(content_length)
+            data = json.loads(body)
+            resume_text = data['resume']
+            job_description_text = data['job_description']
+        except (json.JSONDecodeError, TypeError, KeyError):
+            # If body is not valid JSON or keys are missing, send an error
+            self.send_response(400)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            error_response = {"error": "Request must be JSON with 'resume' and 'job_description' keys."}
+            self.wfile.write(json.dumps(error_response).encode('utf-8'))
+            return
 
-    resume_tokens = preprocess_text(resume_text)
-    jd_tokens = preprocess_text(job_description_text)
+        # --- Your original analysis logic starts here ---
+        resume_tokens = preprocess_text(resume_text)
+        jd_tokens = preprocess_text(job_description_text)
 
-    if not resume_tokens or not jd_tokens:
-        return jsonify({ 'match_score': 0.0, 'missing_keywords': list(set(jd_tokens))[:15] })
+        if not resume_tokens or not jd_tokens:
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            response_data = {'match_score': 0.0, 'missing_keywords': list(set(jd_tokens))[:15]}
+            self.wfile.write(json.dumps(response_data).encode('utf-8'))
+            return
 
-    all_words = sorted(list(set(resume_tokens + jd_tokens)))
-    vocab = {word: i for i, word in enumerate(all_words)}
+        all_words = sorted(list(set(resume_tokens + jd_tokens)))
+        vocab = {word: i for i, word in enumerate(all_words)}
 
-    resume_vec = [0] * len(all_words)
-    for word in resume_tokens:
-        if word in vocab:
-            resume_vec[vocab[word]] += 1
+        resume_vec = [0] * len(all_words)
+        for word in resume_tokens:
+            if word in vocab:
+                resume_vec[vocab[word]] += 1
 
-    jd_vec = [0] * len(all_words)
-    for word in jd_tokens:
-        if word in vocab:
-            jd_vec[vocab[word]] += 1
+        jd_vec = [0] * len(all_words)
+        for word in jd_tokens:
+            if word in vocab:
+                jd_vec[vocab[word]] += 1
+        
+        score = cosine_similarity(resume_vec, jd_vec)
 
-    score = cosine_similarity(resume_vec, jd_vec)
+        jd_words = set(jd_tokens)
+        resume_words = set(resume_tokens)
+        missing_keywords = list(jd_words - resume_words)
+        missing_keywords.sort(key=lambda x: jd_tokens.count(x), reverse=True)
 
-    jd_words = set(jd_tokens)
-    resume_words = set(resume_tokens)
-    missing_keywords = list(jd_words - resume_words)
-    missing_keywords.sort(key=lambda x: jd_tokens.count(x), reverse=True)
+        response_data = {
+            'match_score': score,
+            'missing_keywords': missing_keywords[:15]
+        }
+        # --- Your analysis logic ends here ---
 
-    response_data = {
-        'match_score': score,
-        'missing_keywords': missing_keywords[:15]
-    }
-    return jsonify(response_data)
-
-if __name__ == "__main__":
-    app.run(port=5328, debug=True)
+        # 2. Send a successful response
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps(response_data).encode('utf-8'))
+        return
