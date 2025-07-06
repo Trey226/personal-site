@@ -64,7 +64,7 @@ ${resume}
 ${result.missing_keywords.map(keyword => `- ${keyword}`).join('\n')}
 
 **Your Task:**
-Based on all the information above, please suggest specific, concrete changes to my resume. Focus on my "Professional Summary" and "Projects" sections. Show me how I can naturally weave in the missing keywords and better reflect the language and priorities of the job description.
+Based on all the information above, please suggest specific, concrete changes to my resume. Focus on my "Professional Summary" and "Projects" sections. Help me naturally weave in the missing keywords and better reflect the language and priorities of the job description.
 `;
   };
 

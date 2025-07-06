@@ -1,6 +1,6 @@
 export type pic = {
     src: string, // filepath
-    country: string  // 2 letter ISO code
+    country: string  // 2 letter ISO code CAPITALIZED
     date: string // "month / year"
 }
 

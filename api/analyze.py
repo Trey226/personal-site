@@ -3,8 +3,7 @@ from math import sqrt
 from json import loads, dumps
 from http.server import BaseHTTPRequestHandler
 
-# It's more efficient to define these helpers and constants outside the class
-# so they are not recreated for every single request.
+#this is a list that started from a common stopword list that I add words to as I see them in results.
 
 STOPWORDS = {
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "yourselves", 
@@ -15,7 +14,8 @@ STOPWORDS = {
     "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", 
     "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", 
     "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", 
-    "s", "t", "can", "will", "just", "don", "should", "now", "eg", "work"
+    "s", "t", "can", "will", "just", "don", "should", "now", "eg", "work", "team", "may", "within", "nyscf" , "culture", "solution", 
+    "solutions",
 }
 
 def preprocess_text(text):
@@ -34,7 +34,7 @@ def cosine_similarity(vec1, vec2):
 class handler(BaseHTTPRequestHandler):
     
     def do_POST(self):
-
+        # verify request
         try:
             content_length = int(self.headers['Content-Length'])
             body = self.rfile.read(content_length)
@@ -50,7 +50,7 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(dumps(error_response).encode('utf-8'))
             return
 
-        # --- Your original analysis logic starts here ---
+        # do the thing
         resume_tokens = preprocess_text(resume_text)
         jd_tokens = preprocess_text(job_description_text)
 
@@ -58,7 +58,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response_data = {'match_score': 0.0, 'missing_keywords': list(set(jd_tokens))[:15]}
+            response_data = {'match_score': 0.0, 'missing_keywords': list(set(jd_tokens))[:10]} #this return :n number of keyword suggestions
             self.wfile.write(dumps(response_data).encode('utf-8'))
             return
 
