@@ -1,6 +1,6 @@
-import re
-import math
-import json
+from re import sub
+from math import sqrt
+from json import loads, dumps
 from http.server import BaseHTTPRequestHandler
 
 # It's more efficient to define these helpers and constants outside the class
@@ -19,41 +19,35 @@ STOPWORDS = {
 }
 
 def preprocess_text(text):
-    """Cleans text without NLTK."""
     text = text.lower()
-    text = re.sub(r'[^a-z\s]', '', text)
+    text = sub(r'[^a-z\s]', '', text)
     tokens = text.split()
     return [word for word in tokens if word not in STOPWORDS]
 
 def cosine_similarity(vec1, vec2):
-    """Calculates cosine similarity using pure Python."""
     dot_product = sum(v1 * v2 for v1, v2 in zip(vec1, vec2))
-    norm_a = math.sqrt(sum(v**2 for v in vec1))
-    norm_b = math.sqrt(sum(v**2 for v in vec2))
+    norm_a = sqrt(sum(v**2 for v in vec1))
+    norm_b = sqrt(sum(v**2 for v in vec2))
     norm_product = norm_a * norm_b
     return dot_product / norm_product if norm_product != 0 else 0.0
 
 class handler(BaseHTTPRequestHandler):
     
     def do_POST(self):
-        """
-        Handles POST requests, gets the JSON body, processes it,
-        and returns the analysis.
-        """
-        # 1. Read the body of the POST request
+
         try:
             content_length = int(self.headers['Content-Length'])
             body = self.rfile.read(content_length)
-            data = json.loads(body)
+            data = loads(body)
             resume_text = data['resume']
             job_description_text = data['job_description']
-        except (json.JSONDecodeError, TypeError, KeyError):
+        except (ValueError, TypeError, KeyError):
             # If body is not valid JSON or keys are missing, send an error
             self.send_response(400)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             error_response = {"error": "Request must be JSON with 'resume' and 'job_description' keys."}
-            self.wfile.write(json.dumps(error_response).encode('utf-8'))
+            self.wfile.write(dumps(error_response).encode('utf-8'))
             return
 
         # --- Your original analysis logic starts here ---
@@ -65,7 +59,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             response_data = {'match_score': 0.0, 'missing_keywords': list(set(jd_tokens))[:15]}
-            self.wfile.write(json.dumps(response_data).encode('utf-8'))
+            self.wfile.write(dumps(response_data).encode('utf-8'))
             return
 
         all_words = sorted(list(set(resume_tokens + jd_tokens)))
@@ -92,11 +86,29 @@ class handler(BaseHTTPRequestHandler):
             'match_score': score,
             'missing_keywords': missing_keywords[:15]
         }
-        # --- Your analysis logic ends here ---
 
-        # 2. Send a successful response
+        # Send response
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        self.wfile.write(json.dumps(response_data).encode('utf-8'))
+        self.wfile.write(dumps(response_data).encode('utf-8'))
         return
+
+
+
+
+
+
+
+
+
+
+
+Video
+
+Deep Research
+
+Canvas
+
+Gemini can make mistakes, so double-check it
+
