@@ -21,7 +21,7 @@ export default function MapPageClient() {
                 <h1 className="map-title">Around The World with Trey</h1>
                 <br />
                 <p className="general-text-map">
-                    I have been alive for {totalDays} days (unless something terrible has happened, in which case this will just keep updating). Here's how I've spent them, and some pictures of my favorite ones.
+                    I have been alive for {totalDays} days, unless something terrible happened (this updates automatically). Here's where I've spent them, and some pictures of my favorite ones.
                 </p>
                 <MapDisplayNoSSR data={datas} />
             </div>
