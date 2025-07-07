@@ -8,10 +8,10 @@ export type Interest = {
 export const interestData: Interest[] = [
 
     {
-        linkType: "youtube", 
+        linkType: "research", 
         stuffType: "compsci", 
-        link: "/interests", 
-        description: "This is my favorite stuff! what happens if two rows?"
+        link: "https://arxiv.org/pdf/2506.08872v1", 
+        description: "Your Brain on ChatGPT"
     },
     {
         linkType: "web", 
