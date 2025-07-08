@@ -239,6 +239,11 @@
     .display {
         margin: 0.5rem 0;
     }
+
+    .modal-image-link {
+        pointer-events: none;
+        cursor: default;
+    }
 }
 
 @media (prefers-color-scheme: light) {
