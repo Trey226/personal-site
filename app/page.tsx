@@ -27,19 +27,13 @@ export default function Home() {
           <h1 className="greeting">Hi, I'm Trey!</h1>
           <br />
           <p className="general-text-home">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            I am a software engineer that wanted a place to display projects I have made. Prior to this I had not done very much webdev so this was also an interesting way for me to learn 
+            TypeScript and React. Have fun clicking around and feel free to check out the github repo for this project if you want to see how I made it.
           </p>
           <br />
           <p className="general-text-home">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            Every component on this site (besides the clickable map) were custom made by me just for practice. That means that sometimes the layout, 
+            especially on mobile, could be better. For the most part everything works :)
           </p>
         </div>
       </div>
