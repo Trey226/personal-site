@@ -1,6 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+    output: 'standalone',
+    outputFileTracingExcludes: {
+        'api/**/*': ['./node_modules/**/*']
+    }
 
-}
-
-export default nextConfig;
+  }
