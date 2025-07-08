@@ -77,9 +77,12 @@ export default function MapDisplay({ data }: MapDisplayProps) {
 
     return (
         <div className="map-container">
+            <p className={(screenWidth < 600) ? "" : "hidden"}>
+                If you are on mobile this page is borderline unusable.
+            </p>
             <WorldMap
                 styleFunction={getStyle}
-                size={screenWidth < 1200 ? "responsive" : "xxl"}
+                size={screenWidth < 1200 ? "md" : "xxl"}
                 data={data}
                 valueSuffix="days"
                 frame={true}

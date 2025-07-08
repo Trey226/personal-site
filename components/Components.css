@@ -81,6 +81,7 @@
 
 .map-container {
     display: flex;
+    flex-direction: column;
     margin-top: 40px;
 }
 
@@ -109,6 +110,7 @@
     border-radius: 8px;
     align-items: center;
     position: relative;
+    max-width: 900px;
 }
 
 .modal-close{
@@ -119,6 +121,10 @@
     cursor: pointer;
     font-size: 35px;
     color: red;
+}
+
+.modal-close img {
+    width: 50px;
 }
 
 .modal-title {
@@ -142,6 +148,11 @@
     margin: 10px;
     padding: 10px;
     width: 100%;
+}
+
+.modal-footer .prev-btn img {
+    width: 50px;
+    height: 50px;
 }
 
 .modal-image-link {
@@ -193,6 +204,40 @@
     100% {
         opacity: 0;
         top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95vw;
+        height: 80vh;
+        padding: 10px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+    }
+
+    .modal-close img {
+        width: 30px;
+    }
+
+    .modal-footer {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .modal-footer p {
+        font-size: 14px;
+    }
+
+    .modal-footer .prev-btn img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .display {
+        margin: 0.5rem 0;
     }
 }
 
