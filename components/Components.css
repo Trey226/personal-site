@@ -76,9 +76,6 @@
     width: 50px;
 }
 
-.interest-tile-text {
-}
-
 .map-container {
     display: flex;
     flex-direction: column;
@@ -239,7 +236,7 @@
     .display {
         margin: 0.5rem 0;
     }
-
+    
     .modal-image-link {
         pointer-events: none;
         cursor: default;
