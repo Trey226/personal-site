@@ -16,6 +16,14 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
 
   const [currentPic, setCurrentPic] = useState(0);
   const [toastMessage, setToastMessage] = useState('');
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleClose = () => {
     setCurrentPic(0);
@@ -32,13 +40,13 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
     setCurrentPic(newIndex);
   };
 
-  const handleEmpty = () => {
+  const handleEmpty = React.useCallback(() => {
     setToastMessage(`Trey hasn't added any pictures for ${name}`);
     close();
     setTimeout(() => {
       setToastMessage('');
     }, 3000); // Hide toast and close modal after 3 seconds
-  };
+  }, [name, close]);
 
 
 
@@ -47,14 +55,33 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
     if (isOpen && (!pics || pics.length === 0)) {
       handleEmpty()
     }
+  }, [isOpen, pics, handleEmpty]);
 
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
+  //this prevents scrolling and handles zooming on mobile while the modal is open
+  useEffect(() => {
+    if (!isOpen) {
+      return;
     }
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      return;
+    }
+
+    const originalContent = viewport.getAttribute('content');
+    const isMobile = window.innerWidth < 768;
+
+    document.body.style.overflow = 'hidden';
+    if (isMobile) {
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+
     return () => {
       document.body.style.overflow = 'unset';
+      if (isMobile && originalContent) {
+        viewport.setAttribute('content', originalContent);
+      }
     };
-  }, [isOpen, pics]);
+  }, [isOpen]);
 
   if (!isOpen) {
     return toastMessage ? <Toast message={toastMessage} /> : null;
@@ -74,7 +101,13 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
           <h1 className="modal-title">Pictures from {name}</h1>
           <h2>{pics[currentPic].date}</h2>
           <div className='display'>
-            <a href={pics[currentPic].src} target='_blank' rel="noopener noreferrer" className="modal-image-link"><img src={pics[currentPic].src} className='modal-image' /></a>
+            {screenWidth > 768 ? (
+              <a href={pics[currentPic].src} target='_blank' rel="noopener noreferrer" className="modal-image-link"><img src={pics[currentPic].src} className='modal-image' /></a>
+            ) : (
+              <div className="modal-image-link">
+                <img src={pics[currentPic].src} className='modal-image' />
+              </div>
+            )}
           </div>
           <div className="modal-footer">
             <button className='prev-btn rotate-y-180 mr-2 cursor-pointer' onClick={handlePrevious}><img src="/arrow.png" /></button>
