@@ -27,7 +27,7 @@ export default function Home() {
           <h1 className="greeting">Hi, I'm Trey!</h1>
           <br />
           <p className="general-text-home">
-            I am a software engineer that wanted a place to display projects I have made. Prior to this I had not done very much webdev so this was also an interesting way for me to learn 
+            I'm a software engineer that wanted a place to display projects I have made. Prior to this website I had not done very much web development so this was also a way for me to learn 
             TypeScript and React. Have fun clicking around and feel free to check out the github repo for this project if you want to see how I made it.
           </p>
           <br />

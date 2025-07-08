@@ -54,7 +54,24 @@ export default function PicModal({ isOpen, name, code, close }: PicModalProps) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, pics]);
+  }, [isOpen, pics, handleEmpty]);
+
+  // this resets the zoom to 1.0 when the modal is open on mobile
+  useEffect(() => {
+    if (isOpen) {
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if (viewport) {
+        const originalContent = viewport.getAttribute('content');
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+
+        return () => {
+          if(originalContent) {
+            viewport.setAttribute('content', originalContent);
+          }
+        };
+      }
+    }
+  }, [isOpen]);
 
   if (!isOpen) {
     return toastMessage ? <Toast message={toastMessage} /> : null;
