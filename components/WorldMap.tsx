@@ -78,7 +78,7 @@ export default function MapDisplay({ data }: MapDisplayProps) {
     return (
         <div className="map-container">
             <p className={(screenWidth < 600) ? "" : "hidden"}>
-                If you are on mobile this page is borderline unusable.
+                If you are on mobile this page this page is hard to navigate.
             </p>
             <WorldMap
                 styleFunction={getStyle}
