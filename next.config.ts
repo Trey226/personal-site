@@ -1,7 +1,14 @@
-// next.config.js or next.config.mjs
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
- }
- module.exports = nextConfig
+    outputFileTracingExcludes: {
+        '/api/**/*': [
+            './node_modules/**/*',
+            './app/**/*',
+            './components/**/*',
+            './public/**/*',
+            './_data/**/*',
+        ],
+    }
+}
+
+module.exports = nextConfig;
