@@ -1,6 +1,4 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+     'api/analyze': ['./app/**/*'],
 
 }
-
-export default nextConfig;
