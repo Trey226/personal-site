@@ -44,7 +44,7 @@ export default function JsonPageClient() {
           const countryCode = iso1A2Code([exif.longitude, exif.latitude]);
 
           const newPic: pic = {
-            src: `/twpics/${file.name}`,
+            src: `https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/${file.name}`,
             country: countryCode ?? "", // The library returns the 2-letter UPPERCASE country code.
             date: formattedDate
           };
