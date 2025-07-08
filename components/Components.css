@@ -159,6 +159,43 @@
     border-radius: 8px;
 }
 
+/* Toast Styles */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #eeeb4d;
+    color: rgb(0, 0, 0);
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    animation: fadeInOut 3s forwards;
+}
+
+.toast-message {
+    font-size: 16px;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        top: 0;
+    }
+    10% {
+        opacity: 1;
+        top: 20px;
+    }
+    90% {
+        opacity: 1;
+        top: 20px;
+    }
+    100% {
+        opacity: 0;
+        top: 0;
+    }
+}
+
 @media (prefers-color-scheme: light) {
     .tile {
         border: 2px solid black;

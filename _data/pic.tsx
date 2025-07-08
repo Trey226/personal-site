@@ -6,6 +6,16 @@ export type pic = {
 
 export const allPics: pic[] = [
     {
+        "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/01pu.jpg",
+        "country": "AR",
+        "date": "July 2019"
+    },
+    {
+        "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/02pu.jpg",
+        "country": "AR",
+        "date": "July 2019"
+    },
+    {
         "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/01ca.jpg",
         "country": "CA",
         "date": "August 2023"
@@ -736,22 +746,7 @@ export const allPics: pic[] = [
         "date": "July 2019"
     },
     {
-        "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/IMG_20190702_120202__01.jpg",
-        "country": "AR",
-        "date": "July 2019"
-    },
-    {
         "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/IMG_20190702_173959.jpg",
-        "country": "AR",
-        "date": "July 2019"
-    },
-    {
-        "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/IMG_20190702_174009.jpg",
-        "country": "AR",
-        "date": "July 2019"
-    },
-    {
-        "src": "https://qvjywryd0ntbdmap.public.blob.vercel-storage.com/IMG_20190702_174018.jpg",
         "country": "AR",
         "date": "July 2019"
     },
