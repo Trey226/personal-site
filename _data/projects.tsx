@@ -16,7 +16,7 @@ export const projects: Project[] = [
     },
     {
         title: "Ctrl-C Ctrl-Eat",
-        description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It was built using ASP.NET Core, Entity Framework, and a MySQL Server.",
+        description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It loads slow becuase it is using Azure shared resources tier for hosting.",
         image: "/CtrlC.png",
         link: "https://ctrlc-ctrleat-cqbph7fxbhcpdzh0.centralus-01.azurewebsites.net/Login?LoginEmail=test@example.com&LoginPassword=password",
         outsideLink: true
@@ -29,10 +29,24 @@ export const projects: Project[] = [
         outsideLink: true
     },
     {
+        title: "Mine Your Own Bitcoin",
+        description: "Who needs expensive graphics cards or ASICS cryptocurreny miners when you could just mine bitcoin manually?!",
+        image: "/json.png",
+        link: "/bitcoin-miner",
+        outsideLink: false
+    },
+    {
         title: "Beat the ATS",
         description: "This is a tool written in python that takes your resume and a specific job description and analyzes the most important keywords to include in your resume to get reccomended by ATS software.",
         image: "/keyword.png",
         link: "/keyword-check",
+        outsideLink: false
+    },
+    {
+        title: "JSON Generator",
+        description: "Parses image metadata for GPS coordinates and the timestamp. Then it assembles a JSON object using that info that Trey's World uses to display the pics by country. This one is more for me than you. :)",
+        image: "/json.png",
+        link: "/json-generator",
         outsideLink: false
     },
     {
@@ -42,11 +56,4 @@ export const projects: Project[] = [
         link: "https://notebooklm.google.com/notebook/75344a0d-c6e4-48e7-b151-3da4c93eadd6",
         outsideLink: true
     },
-    {
-        title: "JSON Generator",
-        description: "Parses image metadata for GPS coordinates to determine the country it is from. Then it assembles a JSON object that Trey's World uses to display the pics by country. This one is more for me than you. :)",
-        image: "/json.png",
-        link: "/json-generator",
-        outsideLink: false
-    }
 ]
