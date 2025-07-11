@@ -17,8 +17,10 @@ function getColor(days: number) {
         return "#004D00";
     if (days > 7)
         return "#4CAF50"
-    else
+    if (days > 0)
         return "#A2D9A3";
+    else
+        return "ffffff";
 };
 
 
@@ -30,10 +32,10 @@ const getStyle = ({
     color,
 }: CountryContext) => ({
     fill: getColor(countryValue!),
-    fillOpacity: countryValue ? 1 : 0,
+    fillOpacity: 1,
     stroke: "black",
     strokeWidth: 1,
-    strokeOpacity: .3,
+    strokeOpacity: 1,
     cursor: countryValue ? "pointer" : "auto",
 });
 
@@ -85,8 +87,8 @@ export default function MapDisplay({ data }: MapDisplayProps) {
                 size={screenWidth < 1200 ? "md" : "xxl"}
                 data={data}
                 valueSuffix="days"
-                frame={true}
                 onClickFunction={clickAction}
+                backgroundColor=""
             />
 
             <PicModal

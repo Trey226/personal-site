@@ -29,13 +29,6 @@ export const projects: Project[] = [
         outsideLink: true
     },
     {
-        title: "Mine Your Own Bitcoin",
-        description: "Who needs expensive graphics cards or ASICS cryptocurreny miners when you could just mine bitcoin manually?!",
-        image: "/json.png",
-        link: "/bitcoin-miner",
-        outsideLink: false
-    },
-    {
         title: "Beat the ATS",
         description: "This is a tool written in python that takes your resume and a specific job description and analyzes the most important keywords to include in your resume to get reccomended by ATS software.",
         image: "/keyword.png",
