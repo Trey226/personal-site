@@ -62,10 +62,10 @@ export const interestData: Interest[] = [
         description: "Loss Aversion in Risky Contexts"
     },
     {
-        linkType: "", 
-        stuffType: "", 
-        link: "", 
-        description: ""
+        linkType: "youtube", 
+        stuffType: "random", 
+        link: "https://www.youtube.com/watch?v=h-8jOgQ1ZBY&list=PLflRwNbXC3ZchTO_f6yF9lJXnudZjvM4d", 
+        description: "This girl is kinda funny I guess"
     },
     {
         linkType: "", 
