@@ -9,8 +9,8 @@ export const datas: Data = [
   { country: "ca", value: 13 }, // canada
   { country: "nl", value: 11 }, // netherlands
   { country: "fr", value: 9 }, // france
+  { country: "ar", value: 8 }, // argentina
   { country: "pt", value: 6 }, // portugal
-  { country: "ar", value: 5 }, // argentina
   { country: "bz", value: 3 }, // belize
   { country: "cl", value: 2 }, // chile
   { country: "ch", value: 2 }, // switzerland

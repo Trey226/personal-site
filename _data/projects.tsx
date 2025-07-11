@@ -16,7 +16,7 @@ export const projects: Project[] = [
     },
     {
         title: "Ctrl-C Ctrl-Eat",
-        description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It was built using ASP.NET Core, Entity Framework, and a MySQL Server.",
+        description: "This was my senior capstone project. It is a fully featured digital recipe book that allows users to create, edit, and share recipes with others. It loads slow becuase it is using Azure shared resources tier for hosting.",
         image: "/CtrlC.png",
         link: "https://ctrlc-ctrleat-cqbph7fxbhcpdzh0.centralus-01.azurewebsites.net/Login?LoginEmail=test@example.com&LoginPassword=password",
         outsideLink: true
@@ -36,17 +36,17 @@ export const projects: Project[] = [
         outsideLink: false
     },
     {
+        title: "JSON Generator",
+        description: "Parses image metadata for GPS coordinates and the timestamp. Then it assembles a JSON object using that info that Trey's World uses to display the pics by country. This one is more for me than you. :)",
+        image: "/json.png",
+        link: "/json-generator",
+        outsideLink: false
+    },
+    {
         title: "Virtual Interview",
         description: "This is just a random idea I had while using Google's NotebookLM. This is *supposed* to be a tool that you can ask questions as if I was being interviewed and it *should* spit out answers in about the same way that I would answer. ",
         image: "/stick-figure.png",
         link: "https://notebooklm.google.com/notebook/75344a0d-c6e4-48e7-b151-3da4c93eadd6",
         outsideLink: true
     },
-    {
-        title: "JSON Generator",
-        description: "Parses image metadata for GPS coordinates to determine the country it is from. Then it assembles a JSON object that Trey's World uses to display the pics by country. This one is more for me than you. :)",
-        image: "/json.png",
-        link: "/json-generator",
-        outsideLink: false
-    }
 ]

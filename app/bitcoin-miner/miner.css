@@ -1,0 +1,42 @@
+.miner-content-area{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px;
+    background-color: rgb(238, 238, 238);
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 90vw;
+    overflow: auto;
+    overflow-wrap: break-word;
+}
+
+.miner-title{
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.miner-general-text{
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.miner-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.visuals{
+    margin: 10px;
+    align-self: center;
+    max-width: 700px;
+}
+
+.miner-content-area a{
+    color: #0000EE;
+}

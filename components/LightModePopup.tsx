@@ -18,7 +18,7 @@ export default function LightModePopup() {
   ]
 
   const messages = [
-    <p>It's easy don't worry! <br /> First, press "alt + e"<br />Next, hover over the 4th option from the bottom titled "More tools" <br />Now, the 3rd option from the top says "Customize Chrome" click that <br /> Now click on "Dark" and youre done! </p>,
+    <p>It's easy don't worry! <br /> First, press "alt + e"<br />Next, hover over the 4th option from the bottom titled "More tools" <br />Now, the 3rd option from the top says "Customize Chrome" click that <br /> Now click on "Dark" and you're done! </p>,
     <p>Press "alt + e"<br /> Hover "More tools"<br /> Click "Customize Chrome"<br />Click "Dark"</p>,
     "",
     "You will be happy you made the switch."
