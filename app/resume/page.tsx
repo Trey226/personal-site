@@ -22,7 +22,7 @@ export default function Resume() {
                     <p className="general-text">
                         Results-oriented Software Engineer with a B.S. in Software Engineering and a Minor in Economics, 
                         offering a unique blend of full-stack development skills and quantitative analysis capabilities. 
-                        Eager to apply my strong foundation in software development, statistical analysis, and business logic to a 
+                        Eager to apply my strong foundation in software development, statistical analysis, and data driven business logic to a 
                         challenging role.
                     </p>
                 </div>
