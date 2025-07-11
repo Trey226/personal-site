@@ -33,7 +33,7 @@ export default function Navbar() {
             {/* Desktop Navbar */}
             <nav className="hidden md:flex relative justify-center mt-10" style={{ backgroundColor: "var(--background)" }}>
                 <ul className="flex">
-                    <NavbarItem href="/" activeLink={pathname}>Home</NavbarItem>
+                    <NavbarItem href="/" activeLink={pathname}>About Me</NavbarItem>
                     <NavbarItem href="/projects" activeLink={pathname}>Projects</NavbarItem>
                     <NavbarItem href="/interests" activeLink={pathname}>Stuff I Like</NavbarItem>
                     <NavbarItem href="/resume" activeLink={pathname}>Résumé</NavbarItem>
