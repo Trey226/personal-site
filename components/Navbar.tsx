@@ -36,7 +36,6 @@ export default function Navbar() {
                     <NavbarItem href="/" activeLink={pathname}>About Me</NavbarItem>
                     <NavbarItem href="/projects" activeLink={pathname}>Projects</NavbarItem>
                     <NavbarItem href="/interests" activeLink={pathname}>Stuff I Like</NavbarItem>
-                    <NavbarItem href="/resume" activeLink={pathname}>Résumé</NavbarItem>
                     <NavbarItem href="/treys-world" activeLink={pathname}>Trey's World</NavbarItem>
                 </ul>
             </nav>
@@ -65,7 +64,6 @@ export default function Navbar() {
                             <MobileNavbarItem href="/">Home</MobileNavbarItem>
                             <MobileNavbarItem href="/projects">Projects</MobileNavbarItem>
                             <MobileNavbarItem href="/interests">Stuff I Like</MobileNavbarItem>
-                            <MobileNavbarItem href="/resume">Résumé</MobileNavbarItem>
                             <MobileNavbarItem href="/treys-world">Trey's World</MobileNavbarItem>
                         </ul>
                     </nav>
