@@ -22,6 +22,7 @@ export default function MapPageClient() {
                 <br />
                 <p className="general-text-map">
                     I have been alive for {totalDays} days, unless something terrible happened (this updates automatically). Here's where I've spent them, and some pictures of my favorite ones.
+                    <br /> (For the more technical viewers of this page, no, the pictures aren't lazy loaded. I would hit my free vercel cap way too fast.)
                 </p>
                 <MapDisplayNoSSR data={datas} />
             </div>
