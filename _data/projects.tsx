@@ -36,6 +36,13 @@ export const projects: Project[] = [
         outsideLink: false
     },
     {
+        title: "HTML / CSS Resume",
+        description: "My HTML/CSS was rusty when I started developing this site so I made a resume only using HTML and CSS just as a warm up. This resume is slow to be updated.",
+        image: "/resume.png",
+        link: "/resume",
+        outsideLink: false
+    },
+    {
         title: "JSON Generator",
         description: "Parses image metadata for GPS coordinates and the timestamp. Then it assembles a JSON object using that info that Trey's World uses to display the pics by country. This one is more for me than you. :)",
         image: "/json.png",
