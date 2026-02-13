@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@rapideditor/country-coder": "^5.4.0",
+    "@supabase/supabase-js": "^2.95.3",
     "@vercel/blob": "^1.1.1",
     "@vercel/speed-insights": "^1.2.0",
     "exifr": "^7.1.3",
