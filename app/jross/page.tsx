@@ -91,6 +91,12 @@ export default function JrossDashboard() {
   const [filterPublished, setFilterPublished] = useState('');
   const [filterTime, setFilterTime] = useState('');
 
+  // Email compose mockup
+  const [showEmailCompose, setShowEmailCompose] = useState(false);
+  const [emailSubject, setEmailSubject] = useState('');
+  const [emailBody, setEmailBody] = useState('');
+  const [emailRecipientCount, setEmailRecipientCount] = useState(0);
+
   // Invoices
   const [invoices, setInvoices] = useState<Record<string, unknown>[]>([]);
   const [invoicesLoading, setInvoicesLoading] = useState(false);
@@ -109,6 +115,9 @@ export default function JrossDashboard() {
     setFilterTime('');
     setSearchQuery('');
     setSearchResults([]);
+    setShowEmailCompose(false);
+    setEmailSubject('');
+    setEmailBody('');
     setActiveTile(tile);
   }
 
@@ -339,6 +348,19 @@ export default function JrossDashboard() {
     if (typeof value === 'object') return JSON.stringify(value);
     if (typeof value === 'boolean') return value ? 'Yes' : 'No';
     return String(value);
+  }
+
+  function openEmailCompose(recipientCount: number) {
+    setEmailRecipientCount(recipientCount);
+    setEmailSubject('');
+    setEmailBody('');
+    setShowEmailCompose(true);
+  }
+
+  function closeEmailCompose() {
+    setShowEmailCompose(false);
+    setEmailSubject('');
+    setEmailBody('');
   }
 
   function closeModal() {
@@ -597,6 +619,17 @@ export default function JrossDashboard() {
                   <option value="active">Active</option>
                   <option value="lapsed">Lapsed</option>
                 </select>
+                <button
+                  className="jross-email-btn"
+                  disabled={searchResults.length === 0}
+                  onClick={() => {
+                    if (window.confirm(`Are you sure you want to email ${searchResults.length} member${searchResults.length === 1 ? '' : 's'}?`)) {
+                      openEmailCompose(searchResults.length);
+                    }
+                  }}
+                >
+                  Email Current Selection
+                </button>
               </div>
             )}
             {searchTable === 'events' && (
@@ -620,48 +653,96 @@ export default function JrossDashboard() {
               </div>
             )}
 
-            <div className="jross-search-controls">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              />
-              <button className="jross-submit" onClick={handleSearch} disabled={searchLoading}>
-                {searchLoading ? 'Searching...' : 'Search'}
-              </button>
-            </div>
-
-            {searchMsg && (
-              <div className={searchMsg.type === 'success' ? 'jross-success' : 'jross-error'}>
-                {searchMsg.text}
-              </div>
-            )}
-
-            {searchResults.length > 0 ? (
-              <div className="jross-table-wrap">
-                <table className="jross-table">
-                  <thead>
-                    <tr>
-                      {getColumns(searchResults).map((col) => (
-                        <th key={col}>{formatColumnHeader(col)}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {searchResults.map((row, i) => (
-                      <tr key={i} className="jross-table-clickable" onClick={() => handleRowClick(row)}>
-                        {getColumns(searchResults).map((col) => (
-                          <td key={col}>{formatCell(row[col])}</td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {showEmailCompose ? (
+              <div className="jross-email-compose">
+                <div className="jross-email-compose-header">
+                  <button className="jross-back" onClick={closeEmailCompose}>
+                    &larr; Back to results
+                  </button>
+                  <span className="jross-email-compose-badge">{emailRecipientCount} recipient{emailRecipientCount === 1 ? '' : 's'}</span>
+                </div>
+                <div className="jross-form">
+                  <div className="jross-field">
+                    <label>To</label>
+                    <input type="text" value={`${emailRecipientCount} member${emailRecipientCount === 1 ? '' : 's'} (current selection)`} disabled />
+                  </div>
+                  <div className="jross-field">
+                    <label>Subject</label>
+                    <input
+                      type="text"
+                      placeholder="Enter subject..."
+                      value={emailSubject}
+                      onChange={(e) => setEmailSubject(e.target.value)}
+                    />
+                  </div>
+                  <div className="jross-field">
+                    <label>Body</label>
+                    <textarea
+                      className="jross-textarea"
+                      placeholder="Compose your message..."
+                      rows={8}
+                      value={emailBody}
+                      onChange={(e) => setEmailBody(e.target.value)}
+                    />
+                  </div>
+                  <button
+                    className="jross-submit"
+                    disabled={!emailSubject || !emailBody}
+                    onClick={() => {
+                      window.alert('Email sent! (This is a mockup — no emails were actually sent.)');
+                      closeEmailCompose();
+                    }}
+                  >
+                    Send Email
+                  </button>
+                </div>
               </div>
             ) : (
-              !searchLoading && <div className="jross-no-results">No results found.</div>
+              <>
+                <div className="jross-search-controls">
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                  />
+                  <button className="jross-submit" onClick={handleSearch} disabled={searchLoading}>
+                    {searchLoading ? 'Searching...' : 'Search'}
+                  </button>
+                </div>
+
+                {searchMsg && (
+                  <div className={searchMsg.type === 'success' ? 'jross-success' : 'jross-error'}>
+                    {searchMsg.text}
+                  </div>
+                )}
+
+                {searchResults.length > 0 ? (
+                  <div className="jross-table-wrap">
+                    <table className="jross-table">
+                      <thead>
+                        <tr>
+                          {getColumns(searchResults).map((col) => (
+                            <th key={col}>{formatColumnHeader(col)}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {searchResults.map((row, i) => (
+                          <tr key={i} className="jross-table-clickable" onClick={() => handleRowClick(row)}>
+                            {getColumns(searchResults).map((col) => (
+                              <td key={col}>{formatCell(row[col])}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  !searchLoading && <div className="jross-no-results">No results found.</div>
+                )}
+              </>
             )}
           </div>
         )}
@@ -669,31 +750,93 @@ export default function JrossDashboard() {
         {/* Outstanding Invoices */}
         {activeTile === 'invoices' && (
           <div>
-            {invoicesLoading ? (
-              <div className="jross-no-results">Loading...</div>
-            ) : invoices.length > 0 ? (
-              <div className="jross-table-wrap">
-                <table className="jross-table">
-                  <thead>
-                    <tr>
-                      {getColumns(invoices).map(col => (
-                        <th key={col}>{formatColumnHeader(col)}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {invoices.map((row, i) => (
-                      <tr key={i}>
-                        {getColumns(invoices).map(col => (
-                          <td key={col}>{formatCell(row[col])}</td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {showEmailCompose ? (
+              <div className="jross-email-compose">
+                <div className="jross-email-compose-header">
+                  <button className="jross-back" onClick={closeEmailCompose}>
+                    &larr; Back to invoices
+                  </button>
+                  <span className="jross-email-compose-badge">{emailRecipientCount} recipient{emailRecipientCount === 1 ? '' : 's'}</span>
+                </div>
+                <div className="jross-form">
+                  <div className="jross-field">
+                    <label>To</label>
+                    <input type="text" value={`${emailRecipientCount} member${emailRecipientCount === 1 ? '' : 's'} with unpaid invoices`} disabled />
+                  </div>
+                  <div className="jross-field">
+                    <label>Subject</label>
+                    <input
+                      type="text"
+                      placeholder="Enter subject..."
+                      value={emailSubject}
+                      onChange={(e) => setEmailSubject(e.target.value)}
+                    />
+                  </div>
+                  <div className="jross-field">
+                    <label>Body</label>
+                    <textarea
+                      className="jross-textarea"
+                      placeholder="Compose your message..."
+                      rows={8}
+                      value={emailBody}
+                      onChange={(e) => setEmailBody(e.target.value)}
+                    />
+                  </div>
+                  <button
+                    className="jross-submit"
+                    disabled={!emailSubject || !emailBody}
+                    onClick={() => {
+                      window.alert('Email sent! (This is a mockup — no emails were actually sent.)');
+                      closeEmailCompose();
+                    }}
+                  >
+                    Send Email
+                  </button>
+                </div>
               </div>
             ) : (
-              <div className="jross-no-results">No outstanding invoices.</div>
+              <>
+                {invoices.length > 0 && (
+                  <div className="jross-filters">
+                    <button
+                      className="jross-email-btn jross-email-btn-angry"
+                      onClick={() => {
+                        if (window.confirm(`Are you sure you want to email ${invoices.length} deadbeat${invoices.length === 1 ? '' : 's'}?`)) {
+                          openEmailCompose(invoices.length);
+                        }
+                      }}
+                    >
+                      Tell These Assholes To Pay Me
+                    </button>
+                  </div>
+                )}
+                {invoicesLoading ? (
+                  <div className="jross-no-results">Loading...</div>
+                ) : invoices.length > 0 ? (
+                  <div className="jross-table-wrap">
+                    <table className="jross-table">
+                      <thead>
+                        <tr>
+                          {getColumns(invoices).map(col => (
+                            <th key={col}>{formatColumnHeader(col)}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {invoices.map((row, i) => (
+                          <tr key={i}>
+                            {getColumns(invoices).map(col => (
+                              <td key={col}>{formatCell(row[col])}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : (
+                  <div className="jross-no-results">No outstanding invoices.</div>
+                )}
+              </>
             )}
           </div>
         )}
@@ -784,6 +927,21 @@ export default function JrossDashboard() {
                     <span className="jross-modal-stat-label">Coupons Used</span>
                   </div>
                 </div>
+
+                {(modalDetail.registrations as unknown[]).length > 0 && (
+                  <button
+                    className="jross-modal-email-btn"
+                    onClick={() => {
+                      const count = (modalDetail.registrations as unknown[]).length;
+                      if (window.confirm(`Are you sure you want to email ${count} attendee${count === 1 ? '' : 's'}?`)) {
+                        closeModal();
+                        openEmailCompose(count);
+                      }
+                    }}
+                  >
+                    Email Attendees
+                  </button>
+                )}
 
                 <div className="jross-modal-section">
                   <h3>Registered Members</h3>
